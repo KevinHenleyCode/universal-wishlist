@@ -32,7 +32,8 @@ yarn-error.log*
 *.log
 
 # env files (can opt-in for committing if needed)
-.env*
+.env
+.env.local
 .env.*.local
 
 # OS files
@@ -40,8 +41,7 @@ yarn-error.log*
 Thumbs.db
 
 # Prisma
-prisma/prisma/*
-prisma/migrations/*
+prisma/db/*
 
 # SQLite
 *.sqlite
