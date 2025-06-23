@@ -40,9 +40,8 @@ yarn-error.log*
 Thumbs.db
 
 # Prisma
-prisma/dev.db
-prisma/dev.db-journal
-prisma/migrations/*/README.md
+prisma/prisma/*
+prisma/migrations/*
 
 # SQLite
 *.sqlite
@@ -62,3 +61,5 @@ prisma/migrations/*/README.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/src/generated/prisma
