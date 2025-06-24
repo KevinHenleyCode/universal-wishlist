@@ -23,20 +23,20 @@ model FolioProduct {
   author                  Json
   illustrator             Json
   introduced_by           Json
+  afterword_by            Json
+  pages                   String
   short_description       String
   editor_note_description String
+  collection_text         String
   category                String
-  bestseller              Int
+  publication_date        DateTime
   created_at              DateTime
+  updated_at              DateTime
   price                   Float
   url                     String
   main_image              String
-  main_image_label        String
   thumbnail_image         String
-  thumbnail_label         String
-  swatch_image            String
   media                   Json
-  breadcrumbs             Json
   visibility              Json
   stock_status            Int
   store                   Int

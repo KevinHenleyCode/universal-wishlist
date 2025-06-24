@@ -975,7 +975,6 @@ export namespace Prisma {
   export type FolioProductAvgAggregateOutputType = {
     id: number | null
     book_id: number | null
-    bestseller: number | null
     price: number | null
     stock_status: number | null
     store: number | null
@@ -985,7 +984,6 @@ export namespace Prisma {
   export type FolioProductSumAggregateOutputType = {
     id: number | null
     book_id: number | null
-    bestseller: number | null
     price: number | null
     stock_status: number | null
     store: number | null
@@ -998,18 +996,18 @@ export namespace Prisma {
     book_id: number | null
     sku: string | null
     title: string | null
+    pages: string | null
     short_description: string | null
     editor_note_description: string | null
+    collection_text: string | null
     category: string | null
-    bestseller: number | null
+    publication_date: Date | null
     created_at: Date | null
+    updated_at: Date | null
     price: number | null
     url: string | null
     main_image: string | null
-    main_image_label: string | null
     thumbnail_image: string | null
-    thumbnail_label: string | null
-    swatch_image: string | null
     stock_status: number | null
     store: number | null
     verbosity: number | null
@@ -1021,18 +1019,18 @@ export namespace Prisma {
     book_id: number | null
     sku: string | null
     title: string | null
+    pages: string | null
     short_description: string | null
     editor_note_description: string | null
+    collection_text: string | null
     category: string | null
-    bestseller: number | null
+    publication_date: Date | null
     created_at: Date | null
+    updated_at: Date | null
     price: number | null
     url: string | null
     main_image: string | null
-    main_image_label: string | null
     thumbnail_image: string | null
-    thumbnail_label: string | null
-    swatch_image: string | null
     stock_status: number | null
     store: number | null
     verbosity: number | null
@@ -1047,20 +1045,20 @@ export namespace Prisma {
     author: number
     illustrator: number
     introduced_by: number
+    afterword_by: number
+    pages: number
     short_description: number
     editor_note_description: number
+    collection_text: number
     category: number
-    bestseller: number
+    publication_date: number
     created_at: number
+    updated_at: number
     price: number
     url: number
     main_image: number
-    main_image_label: number
     thumbnail_image: number
-    thumbnail_label: number
-    swatch_image: number
     media: number
-    breadcrumbs: number
     visibility: number
     stock_status: number
     store: number
@@ -1072,7 +1070,6 @@ export namespace Prisma {
   export type FolioProductAvgAggregateInputType = {
     id?: true
     book_id?: true
-    bestseller?: true
     price?: true
     stock_status?: true
     store?: true
@@ -1082,7 +1079,6 @@ export namespace Prisma {
   export type FolioProductSumAggregateInputType = {
     id?: true
     book_id?: true
-    bestseller?: true
     price?: true
     stock_status?: true
     store?: true
@@ -1095,18 +1091,18 @@ export namespace Prisma {
     book_id?: true
     sku?: true
     title?: true
+    pages?: true
     short_description?: true
     editor_note_description?: true
+    collection_text?: true
     category?: true
-    bestseller?: true
+    publication_date?: true
     created_at?: true
+    updated_at?: true
     price?: true
     url?: true
     main_image?: true
-    main_image_label?: true
     thumbnail_image?: true
-    thumbnail_label?: true
-    swatch_image?: true
     stock_status?: true
     store?: true
     verbosity?: true
@@ -1118,18 +1114,18 @@ export namespace Prisma {
     book_id?: true
     sku?: true
     title?: true
+    pages?: true
     short_description?: true
     editor_note_description?: true
+    collection_text?: true
     category?: true
-    bestseller?: true
+    publication_date?: true
     created_at?: true
+    updated_at?: true
     price?: true
     url?: true
     main_image?: true
-    main_image_label?: true
     thumbnail_image?: true
-    thumbnail_label?: true
-    swatch_image?: true
     stock_status?: true
     store?: true
     verbosity?: true
@@ -1144,20 +1140,20 @@ export namespace Prisma {
     author?: true
     illustrator?: true
     introduced_by?: true
+    afterword_by?: true
+    pages?: true
     short_description?: true
     editor_note_description?: true
+    collection_text?: true
     category?: true
-    bestseller?: true
+    publication_date?: true
     created_at?: true
+    updated_at?: true
     price?: true
     url?: true
     main_image?: true
-    main_image_label?: true
     thumbnail_image?: true
-    thumbnail_label?: true
-    swatch_image?: true
     media?: true
-    breadcrumbs?: true
     visibility?: true
     stock_status?: true
     store?: true
@@ -1260,20 +1256,20 @@ export namespace Prisma {
     author: JsonValue
     illustrator: JsonValue
     introduced_by: JsonValue
+    afterword_by: JsonValue
+    pages: string
     short_description: string
     editor_note_description: string
+    collection_text: string
     category: string
-    bestseller: number
+    publication_date: Date
     created_at: Date
+    updated_at: Date
     price: number
     url: string
     main_image: string
-    main_image_label: string
     thumbnail_image: string
-    thumbnail_label: string
-    swatch_image: string
     media: JsonValue
-    breadcrumbs: JsonValue
     visibility: JsonValue
     stock_status: number
     store: number
@@ -1308,20 +1304,20 @@ export namespace Prisma {
     author?: boolean
     illustrator?: boolean
     introduced_by?: boolean
+    afterword_by?: boolean
+    pages?: boolean
     short_description?: boolean
     editor_note_description?: boolean
+    collection_text?: boolean
     category?: boolean
-    bestseller?: boolean
+    publication_date?: boolean
     created_at?: boolean
+    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
-    main_image_label?: boolean
     thumbnail_image?: boolean
-    thumbnail_label?: boolean
-    swatch_image?: boolean
     media?: boolean
-    breadcrumbs?: boolean
     visibility?: boolean
     stock_status?: boolean
     store?: boolean
@@ -1338,20 +1334,20 @@ export namespace Prisma {
     author?: boolean
     illustrator?: boolean
     introduced_by?: boolean
+    afterword_by?: boolean
+    pages?: boolean
     short_description?: boolean
     editor_note_description?: boolean
+    collection_text?: boolean
     category?: boolean
-    bestseller?: boolean
+    publication_date?: boolean
     created_at?: boolean
+    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
-    main_image_label?: boolean
     thumbnail_image?: boolean
-    thumbnail_label?: boolean
-    swatch_image?: boolean
     media?: boolean
-    breadcrumbs?: boolean
     visibility?: boolean
     stock_status?: boolean
     store?: boolean
@@ -1367,20 +1363,20 @@ export namespace Prisma {
     author?: boolean
     illustrator?: boolean
     introduced_by?: boolean
+    afterword_by?: boolean
+    pages?: boolean
     short_description?: boolean
     editor_note_description?: boolean
+    collection_text?: boolean
     category?: boolean
-    bestseller?: boolean
+    publication_date?: boolean
     created_at?: boolean
+    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
-    main_image_label?: boolean
     thumbnail_image?: boolean
-    thumbnail_label?: boolean
-    swatch_image?: boolean
     media?: boolean
-    breadcrumbs?: boolean
     visibility?: boolean
     stock_status?: boolean
     store?: boolean
@@ -1396,27 +1392,27 @@ export namespace Prisma {
     author?: boolean
     illustrator?: boolean
     introduced_by?: boolean
+    afterword_by?: boolean
+    pages?: boolean
     short_description?: boolean
     editor_note_description?: boolean
+    collection_text?: boolean
     category?: boolean
-    bestseller?: boolean
+    publication_date?: boolean
     created_at?: boolean
+    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
-    main_image_label?: boolean
     thumbnail_image?: boolean
-    thumbnail_label?: boolean
-    swatch_image?: boolean
     media?: boolean
-    breadcrumbs?: boolean
     visibility?: boolean
     stock_status?: boolean
     store?: boolean
     verbosity?: boolean
   }
 
-  export type FolioProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "book_id" | "sku" | "title" | "author" | "illustrator" | "introduced_by" | "short_description" | "editor_note_description" | "category" | "bestseller" | "created_at" | "price" | "url" | "main_image" | "main_image_label" | "thumbnail_image" | "thumbnail_label" | "swatch_image" | "media" | "breadcrumbs" | "visibility" | "stock_status" | "store" | "verbosity", ExtArgs["result"]["folioProduct"]>
+  export type FolioProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "book_id" | "sku" | "title" | "author" | "illustrator" | "introduced_by" | "afterword_by" | "pages" | "short_description" | "editor_note_description" | "collection_text" | "category" | "publication_date" | "created_at" | "updated_at" | "price" | "url" | "main_image" | "thumbnail_image" | "media" | "visibility" | "stock_status" | "store" | "verbosity", ExtArgs["result"]["folioProduct"]>
   export type FolioProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     stock?: boolean | FolioProduct$stockArgs<ExtArgs>
   }
@@ -1437,20 +1433,20 @@ export namespace Prisma {
       author: Prisma.JsonValue
       illustrator: Prisma.JsonValue
       introduced_by: Prisma.JsonValue
+      afterword_by: Prisma.JsonValue
+      pages: string
       short_description: string
       editor_note_description: string
+      collection_text: string
       category: string
-      bestseller: number
+      publication_date: Date
       created_at: Date
+      updated_at: Date
       price: number
       url: string
       main_image: string
-      main_image_label: string
       thumbnail_image: string
-      thumbnail_label: string
-      swatch_image: string
       media: Prisma.JsonValue
-      breadcrumbs: Prisma.JsonValue
       visibility: Prisma.JsonValue
       stock_status: number
       store: number
@@ -1887,20 +1883,20 @@ export namespace Prisma {
     readonly author: FieldRef<"FolioProduct", 'Json'>
     readonly illustrator: FieldRef<"FolioProduct", 'Json'>
     readonly introduced_by: FieldRef<"FolioProduct", 'Json'>
+    readonly afterword_by: FieldRef<"FolioProduct", 'Json'>
+    readonly pages: FieldRef<"FolioProduct", 'String'>
     readonly short_description: FieldRef<"FolioProduct", 'String'>
     readonly editor_note_description: FieldRef<"FolioProduct", 'String'>
+    readonly collection_text: FieldRef<"FolioProduct", 'String'>
     readonly category: FieldRef<"FolioProduct", 'String'>
-    readonly bestseller: FieldRef<"FolioProduct", 'Int'>
+    readonly publication_date: FieldRef<"FolioProduct", 'DateTime'>
     readonly created_at: FieldRef<"FolioProduct", 'DateTime'>
+    readonly updated_at: FieldRef<"FolioProduct", 'DateTime'>
     readonly price: FieldRef<"FolioProduct", 'Float'>
     readonly url: FieldRef<"FolioProduct", 'String'>
     readonly main_image: FieldRef<"FolioProduct", 'String'>
-    readonly main_image_label: FieldRef<"FolioProduct", 'String'>
     readonly thumbnail_image: FieldRef<"FolioProduct", 'String'>
-    readonly thumbnail_label: FieldRef<"FolioProduct", 'String'>
-    readonly swatch_image: FieldRef<"FolioProduct", 'String'>
     readonly media: FieldRef<"FolioProduct", 'Json'>
-    readonly breadcrumbs: FieldRef<"FolioProduct", 'Json'>
     readonly visibility: FieldRef<"FolioProduct", 'Json'>
     readonly stock_status: FieldRef<"FolioProduct", 'Int'>
     readonly store: FieldRef<"FolioProduct", 'Int'>
@@ -3446,20 +3442,20 @@ export namespace Prisma {
     author: 'author',
     illustrator: 'illustrator',
     introduced_by: 'introduced_by',
+    afterword_by: 'afterword_by',
+    pages: 'pages',
     short_description: 'short_description',
     editor_note_description: 'editor_note_description',
+    collection_text: 'collection_text',
     category: 'category',
-    bestseller: 'bestseller',
+    publication_date: 'publication_date',
     created_at: 'created_at',
+    updated_at: 'updated_at',
     price: 'price',
     url: 'url',
     main_image: 'main_image',
-    main_image_label: 'main_image_label',
     thumbnail_image: 'thumbnail_image',
-    thumbnail_label: 'thumbnail_label',
-    swatch_image: 'swatch_image',
     media: 'media',
-    breadcrumbs: 'breadcrumbs',
     visibility: 'visibility',
     stock_status: 'stock_status',
     store: 'store',
@@ -3581,20 +3577,20 @@ export namespace Prisma {
     author?: JsonFilter<"FolioProduct">
     illustrator?: JsonFilter<"FolioProduct">
     introduced_by?: JsonFilter<"FolioProduct">
+    afterword_by?: JsonFilter<"FolioProduct">
+    pages?: StringFilter<"FolioProduct"> | string
     short_description?: StringFilter<"FolioProduct"> | string
     editor_note_description?: StringFilter<"FolioProduct"> | string
+    collection_text?: StringFilter<"FolioProduct"> | string
     category?: StringFilter<"FolioProduct"> | string
-    bestseller?: IntFilter<"FolioProduct"> | number
+    publication_date?: DateTimeFilter<"FolioProduct"> | Date | string
     created_at?: DateTimeFilter<"FolioProduct"> | Date | string
+    updated_at?: DateTimeFilter<"FolioProduct"> | Date | string
     price?: FloatFilter<"FolioProduct"> | number
     url?: StringFilter<"FolioProduct"> | string
     main_image?: StringFilter<"FolioProduct"> | string
-    main_image_label?: StringFilter<"FolioProduct"> | string
     thumbnail_image?: StringFilter<"FolioProduct"> | string
-    thumbnail_label?: StringFilter<"FolioProduct"> | string
-    swatch_image?: StringFilter<"FolioProduct"> | string
     media?: JsonFilter<"FolioProduct">
-    breadcrumbs?: JsonFilter<"FolioProduct">
     visibility?: JsonFilter<"FolioProduct">
     stock_status?: IntFilter<"FolioProduct"> | number
     store?: IntFilter<"FolioProduct"> | number
@@ -3611,20 +3607,20 @@ export namespace Prisma {
     author?: SortOrder
     illustrator?: SortOrder
     introduced_by?: SortOrder
+    afterword_by?: SortOrder
+    pages?: SortOrder
     short_description?: SortOrder
     editor_note_description?: SortOrder
+    collection_text?: SortOrder
     category?: SortOrder
-    bestseller?: SortOrder
+    publication_date?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
-    main_image_label?: SortOrder
     thumbnail_image?: SortOrder
-    thumbnail_label?: SortOrder
-    swatch_image?: SortOrder
     media?: SortOrder
-    breadcrumbs?: SortOrder
     visibility?: SortOrder
     stock_status?: SortOrder
     store?: SortOrder
@@ -3644,20 +3640,20 @@ export namespace Prisma {
     author?: JsonFilter<"FolioProduct">
     illustrator?: JsonFilter<"FolioProduct">
     introduced_by?: JsonFilter<"FolioProduct">
+    afterword_by?: JsonFilter<"FolioProduct">
+    pages?: StringFilter<"FolioProduct"> | string
     short_description?: StringFilter<"FolioProduct"> | string
     editor_note_description?: StringFilter<"FolioProduct"> | string
+    collection_text?: StringFilter<"FolioProduct"> | string
     category?: StringFilter<"FolioProduct"> | string
-    bestseller?: IntFilter<"FolioProduct"> | number
+    publication_date?: DateTimeFilter<"FolioProduct"> | Date | string
     created_at?: DateTimeFilter<"FolioProduct"> | Date | string
+    updated_at?: DateTimeFilter<"FolioProduct"> | Date | string
     price?: FloatFilter<"FolioProduct"> | number
     url?: StringFilter<"FolioProduct"> | string
     main_image?: StringFilter<"FolioProduct"> | string
-    main_image_label?: StringFilter<"FolioProduct"> | string
     thumbnail_image?: StringFilter<"FolioProduct"> | string
-    thumbnail_label?: StringFilter<"FolioProduct"> | string
-    swatch_image?: StringFilter<"FolioProduct"> | string
     media?: JsonFilter<"FolioProduct">
-    breadcrumbs?: JsonFilter<"FolioProduct">
     visibility?: JsonFilter<"FolioProduct">
     stock_status?: IntFilter<"FolioProduct"> | number
     store?: IntFilter<"FolioProduct"> | number
@@ -3674,20 +3670,20 @@ export namespace Prisma {
     author?: SortOrder
     illustrator?: SortOrder
     introduced_by?: SortOrder
+    afterword_by?: SortOrder
+    pages?: SortOrder
     short_description?: SortOrder
     editor_note_description?: SortOrder
+    collection_text?: SortOrder
     category?: SortOrder
-    bestseller?: SortOrder
+    publication_date?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
-    main_image_label?: SortOrder
     thumbnail_image?: SortOrder
-    thumbnail_label?: SortOrder
-    swatch_image?: SortOrder
     media?: SortOrder
-    breadcrumbs?: SortOrder
     visibility?: SortOrder
     stock_status?: SortOrder
     store?: SortOrder
@@ -3711,20 +3707,20 @@ export namespace Prisma {
     author?: JsonWithAggregatesFilter<"FolioProduct">
     illustrator?: JsonWithAggregatesFilter<"FolioProduct">
     introduced_by?: JsonWithAggregatesFilter<"FolioProduct">
+    afterword_by?: JsonWithAggregatesFilter<"FolioProduct">
+    pages?: StringWithAggregatesFilter<"FolioProduct"> | string
     short_description?: StringWithAggregatesFilter<"FolioProduct"> | string
     editor_note_description?: StringWithAggregatesFilter<"FolioProduct"> | string
+    collection_text?: StringWithAggregatesFilter<"FolioProduct"> | string
     category?: StringWithAggregatesFilter<"FolioProduct"> | string
-    bestseller?: IntWithAggregatesFilter<"FolioProduct"> | number
+    publication_date?: DateTimeWithAggregatesFilter<"FolioProduct"> | Date | string
     created_at?: DateTimeWithAggregatesFilter<"FolioProduct"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"FolioProduct"> | Date | string
     price?: FloatWithAggregatesFilter<"FolioProduct"> | number
     url?: StringWithAggregatesFilter<"FolioProduct"> | string
     main_image?: StringWithAggregatesFilter<"FolioProduct"> | string
-    main_image_label?: StringWithAggregatesFilter<"FolioProduct"> | string
     thumbnail_image?: StringWithAggregatesFilter<"FolioProduct"> | string
-    thumbnail_label?: StringWithAggregatesFilter<"FolioProduct"> | string
-    swatch_image?: StringWithAggregatesFilter<"FolioProduct"> | string
     media?: JsonWithAggregatesFilter<"FolioProduct">
-    breadcrumbs?: JsonWithAggregatesFilter<"FolioProduct">
     visibility?: JsonWithAggregatesFilter<"FolioProduct">
     stock_status?: IntWithAggregatesFilter<"FolioProduct"> | number
     store?: IntWithAggregatesFilter<"FolioProduct"> | number
@@ -3796,20 +3792,20 @@ export namespace Prisma {
     author: JsonNullValueInput | InputJsonValue
     illustrator: JsonNullValueInput | InputJsonValue
     introduced_by: JsonNullValueInput | InputJsonValue
+    afterword_by: JsonNullValueInput | InputJsonValue
+    pages: string
     short_description: string
     editor_note_description: string
+    collection_text: string
     category: string
-    bestseller: number
+    publication_date: Date | string
     created_at: Date | string
+    updated_at: Date | string
     price: number
     url: string
     main_image: string
-    main_image_label: string
     thumbnail_image: string
-    thumbnail_label: string
-    swatch_image: string
     media: JsonNullValueInput | InputJsonValue
-    breadcrumbs: JsonNullValueInput | InputJsonValue
     visibility: JsonNullValueInput | InputJsonValue
     stock_status: number
     store: number
@@ -3826,20 +3822,20 @@ export namespace Prisma {
     author: JsonNullValueInput | InputJsonValue
     illustrator: JsonNullValueInput | InputJsonValue
     introduced_by: JsonNullValueInput | InputJsonValue
+    afterword_by: JsonNullValueInput | InputJsonValue
+    pages: string
     short_description: string
     editor_note_description: string
+    collection_text: string
     category: string
-    bestseller: number
+    publication_date: Date | string
     created_at: Date | string
+    updated_at: Date | string
     price: number
     url: string
     main_image: string
-    main_image_label: string
     thumbnail_image: string
-    thumbnail_label: string
-    swatch_image: string
     media: JsonNullValueInput | InputJsonValue
-    breadcrumbs: JsonNullValueInput | InputJsonValue
     visibility: JsonNullValueInput | InputJsonValue
     stock_status: number
     store: number
@@ -3855,20 +3851,20 @@ export namespace Prisma {
     author?: JsonNullValueInput | InputJsonValue
     illustrator?: JsonNullValueInput | InputJsonValue
     introduced_by?: JsonNullValueInput | InputJsonValue
+    afterword_by?: JsonNullValueInput | InputJsonValue
+    pages?: StringFieldUpdateOperationsInput | string
     short_description?: StringFieldUpdateOperationsInput | string
     editor_note_description?: StringFieldUpdateOperationsInput | string
+    collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    bestseller?: IntFieldUpdateOperationsInput | number
+    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
-    main_image_label?: StringFieldUpdateOperationsInput | string
     thumbnail_image?: StringFieldUpdateOperationsInput | string
-    thumbnail_label?: StringFieldUpdateOperationsInput | string
-    swatch_image?: StringFieldUpdateOperationsInput | string
     media?: JsonNullValueInput | InputJsonValue
-    breadcrumbs?: JsonNullValueInput | InputJsonValue
     visibility?: JsonNullValueInput | InputJsonValue
     stock_status?: IntFieldUpdateOperationsInput | number
     store?: IntFieldUpdateOperationsInput | number
@@ -3885,20 +3881,20 @@ export namespace Prisma {
     author?: JsonNullValueInput | InputJsonValue
     illustrator?: JsonNullValueInput | InputJsonValue
     introduced_by?: JsonNullValueInput | InputJsonValue
+    afterword_by?: JsonNullValueInput | InputJsonValue
+    pages?: StringFieldUpdateOperationsInput | string
     short_description?: StringFieldUpdateOperationsInput | string
     editor_note_description?: StringFieldUpdateOperationsInput | string
+    collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    bestseller?: IntFieldUpdateOperationsInput | number
+    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
-    main_image_label?: StringFieldUpdateOperationsInput | string
     thumbnail_image?: StringFieldUpdateOperationsInput | string
-    thumbnail_label?: StringFieldUpdateOperationsInput | string
-    swatch_image?: StringFieldUpdateOperationsInput | string
     media?: JsonNullValueInput | InputJsonValue
-    breadcrumbs?: JsonNullValueInput | InputJsonValue
     visibility?: JsonNullValueInput | InputJsonValue
     stock_status?: IntFieldUpdateOperationsInput | number
     store?: IntFieldUpdateOperationsInput | number
@@ -3915,20 +3911,20 @@ export namespace Prisma {
     author: JsonNullValueInput | InputJsonValue
     illustrator: JsonNullValueInput | InputJsonValue
     introduced_by: JsonNullValueInput | InputJsonValue
+    afterword_by: JsonNullValueInput | InputJsonValue
+    pages: string
     short_description: string
     editor_note_description: string
+    collection_text: string
     category: string
-    bestseller: number
+    publication_date: Date | string
     created_at: Date | string
+    updated_at: Date | string
     price: number
     url: string
     main_image: string
-    main_image_label: string
     thumbnail_image: string
-    thumbnail_label: string
-    swatch_image: string
     media: JsonNullValueInput | InputJsonValue
-    breadcrumbs: JsonNullValueInput | InputJsonValue
     visibility: JsonNullValueInput | InputJsonValue
     stock_status: number
     store: number
@@ -3943,20 +3939,20 @@ export namespace Prisma {
     author?: JsonNullValueInput | InputJsonValue
     illustrator?: JsonNullValueInput | InputJsonValue
     introduced_by?: JsonNullValueInput | InputJsonValue
+    afterword_by?: JsonNullValueInput | InputJsonValue
+    pages?: StringFieldUpdateOperationsInput | string
     short_description?: StringFieldUpdateOperationsInput | string
     editor_note_description?: StringFieldUpdateOperationsInput | string
+    collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    bestseller?: IntFieldUpdateOperationsInput | number
+    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
-    main_image_label?: StringFieldUpdateOperationsInput | string
     thumbnail_image?: StringFieldUpdateOperationsInput | string
-    thumbnail_label?: StringFieldUpdateOperationsInput | string
-    swatch_image?: StringFieldUpdateOperationsInput | string
     media?: JsonNullValueInput | InputJsonValue
-    breadcrumbs?: JsonNullValueInput | InputJsonValue
     visibility?: JsonNullValueInput | InputJsonValue
     stock_status?: IntFieldUpdateOperationsInput | number
     store?: IntFieldUpdateOperationsInput | number
@@ -3972,20 +3968,20 @@ export namespace Prisma {
     author?: JsonNullValueInput | InputJsonValue
     illustrator?: JsonNullValueInput | InputJsonValue
     introduced_by?: JsonNullValueInput | InputJsonValue
+    afterword_by?: JsonNullValueInput | InputJsonValue
+    pages?: StringFieldUpdateOperationsInput | string
     short_description?: StringFieldUpdateOperationsInput | string
     editor_note_description?: StringFieldUpdateOperationsInput | string
+    collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    bestseller?: IntFieldUpdateOperationsInput | number
+    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
-    main_image_label?: StringFieldUpdateOperationsInput | string
     thumbnail_image?: StringFieldUpdateOperationsInput | string
-    thumbnail_label?: StringFieldUpdateOperationsInput | string
-    swatch_image?: StringFieldUpdateOperationsInput | string
     media?: JsonNullValueInput | InputJsonValue
-    breadcrumbs?: JsonNullValueInput | InputJsonValue
     visibility?: JsonNullValueInput | InputJsonValue
     stock_status?: IntFieldUpdateOperationsInput | number
     store?: IntFieldUpdateOperationsInput | number
@@ -4123,20 +4119,20 @@ export namespace Prisma {
     author?: SortOrder
     illustrator?: SortOrder
     introduced_by?: SortOrder
+    afterword_by?: SortOrder
+    pages?: SortOrder
     short_description?: SortOrder
     editor_note_description?: SortOrder
+    collection_text?: SortOrder
     category?: SortOrder
-    bestseller?: SortOrder
+    publication_date?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
-    main_image_label?: SortOrder
     thumbnail_image?: SortOrder
-    thumbnail_label?: SortOrder
-    swatch_image?: SortOrder
     media?: SortOrder
-    breadcrumbs?: SortOrder
     visibility?: SortOrder
     stock_status?: SortOrder
     store?: SortOrder
@@ -4146,7 +4142,6 @@ export namespace Prisma {
   export type FolioProductAvgOrderByAggregateInput = {
     id?: SortOrder
     book_id?: SortOrder
-    bestseller?: SortOrder
     price?: SortOrder
     stock_status?: SortOrder
     store?: SortOrder
@@ -4159,18 +4154,18 @@ export namespace Prisma {
     book_id?: SortOrder
     sku?: SortOrder
     title?: SortOrder
+    pages?: SortOrder
     short_description?: SortOrder
     editor_note_description?: SortOrder
+    collection_text?: SortOrder
     category?: SortOrder
-    bestseller?: SortOrder
+    publication_date?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
-    main_image_label?: SortOrder
     thumbnail_image?: SortOrder
-    thumbnail_label?: SortOrder
-    swatch_image?: SortOrder
     stock_status?: SortOrder
     store?: SortOrder
     verbosity?: SortOrder
@@ -4182,18 +4177,18 @@ export namespace Prisma {
     book_id?: SortOrder
     sku?: SortOrder
     title?: SortOrder
+    pages?: SortOrder
     short_description?: SortOrder
     editor_note_description?: SortOrder
+    collection_text?: SortOrder
     category?: SortOrder
-    bestseller?: SortOrder
+    publication_date?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
-    main_image_label?: SortOrder
     thumbnail_image?: SortOrder
-    thumbnail_label?: SortOrder
-    swatch_image?: SortOrder
     stock_status?: SortOrder
     store?: SortOrder
     verbosity?: SortOrder
@@ -4202,7 +4197,6 @@ export namespace Prisma {
   export type FolioProductSumOrderByAggregateInput = {
     id?: SortOrder
     book_id?: SortOrder
-    bestseller?: SortOrder
     price?: SortOrder
     stock_status?: SortOrder
     store?: SortOrder
@@ -4612,20 +4606,20 @@ export namespace Prisma {
     author: JsonNullValueInput | InputJsonValue
     illustrator: JsonNullValueInput | InputJsonValue
     introduced_by: JsonNullValueInput | InputJsonValue
+    afterword_by: JsonNullValueInput | InputJsonValue
+    pages: string
     short_description: string
     editor_note_description: string
+    collection_text: string
     category: string
-    bestseller: number
+    publication_date: Date | string
     created_at: Date | string
+    updated_at: Date | string
     price: number
     url: string
     main_image: string
-    main_image_label: string
     thumbnail_image: string
-    thumbnail_label: string
-    swatch_image: string
     media: JsonNullValueInput | InputJsonValue
-    breadcrumbs: JsonNullValueInput | InputJsonValue
     visibility: JsonNullValueInput | InputJsonValue
     stock_status: number
     store: number
@@ -4641,20 +4635,20 @@ export namespace Prisma {
     author: JsonNullValueInput | InputJsonValue
     illustrator: JsonNullValueInput | InputJsonValue
     introduced_by: JsonNullValueInput | InputJsonValue
+    afterword_by: JsonNullValueInput | InputJsonValue
+    pages: string
     short_description: string
     editor_note_description: string
+    collection_text: string
     category: string
-    bestseller: number
+    publication_date: Date | string
     created_at: Date | string
+    updated_at: Date | string
     price: number
     url: string
     main_image: string
-    main_image_label: string
     thumbnail_image: string
-    thumbnail_label: string
-    swatch_image: string
     media: JsonNullValueInput | InputJsonValue
-    breadcrumbs: JsonNullValueInput | InputJsonValue
     visibility: JsonNullValueInput | InputJsonValue
     stock_status: number
     store: number
@@ -4685,20 +4679,20 @@ export namespace Prisma {
     author?: JsonNullValueInput | InputJsonValue
     illustrator?: JsonNullValueInput | InputJsonValue
     introduced_by?: JsonNullValueInput | InputJsonValue
+    afterword_by?: JsonNullValueInput | InputJsonValue
+    pages?: StringFieldUpdateOperationsInput | string
     short_description?: StringFieldUpdateOperationsInput | string
     editor_note_description?: StringFieldUpdateOperationsInput | string
+    collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    bestseller?: IntFieldUpdateOperationsInput | number
+    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
-    main_image_label?: StringFieldUpdateOperationsInput | string
     thumbnail_image?: StringFieldUpdateOperationsInput | string
-    thumbnail_label?: StringFieldUpdateOperationsInput | string
-    swatch_image?: StringFieldUpdateOperationsInput | string
     media?: JsonNullValueInput | InputJsonValue
-    breadcrumbs?: JsonNullValueInput | InputJsonValue
     visibility?: JsonNullValueInput | InputJsonValue
     stock_status?: IntFieldUpdateOperationsInput | number
     store?: IntFieldUpdateOperationsInput | number
@@ -4714,20 +4708,20 @@ export namespace Prisma {
     author?: JsonNullValueInput | InputJsonValue
     illustrator?: JsonNullValueInput | InputJsonValue
     introduced_by?: JsonNullValueInput | InputJsonValue
+    afterword_by?: JsonNullValueInput | InputJsonValue
+    pages?: StringFieldUpdateOperationsInput | string
     short_description?: StringFieldUpdateOperationsInput | string
     editor_note_description?: StringFieldUpdateOperationsInput | string
+    collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    bestseller?: IntFieldUpdateOperationsInput | number
+    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
-    main_image_label?: StringFieldUpdateOperationsInput | string
     thumbnail_image?: StringFieldUpdateOperationsInput | string
-    thumbnail_label?: StringFieldUpdateOperationsInput | string
-    swatch_image?: StringFieldUpdateOperationsInput | string
     media?: JsonNullValueInput | InputJsonValue
-    breadcrumbs?: JsonNullValueInput | InputJsonValue
     visibility?: JsonNullValueInput | InputJsonValue
     stock_status?: IntFieldUpdateOperationsInput | number
     store?: IntFieldUpdateOperationsInput | number
