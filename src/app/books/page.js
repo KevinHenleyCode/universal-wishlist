@@ -1,18 +1,24 @@
-const getMessage = async () => {
-  const res = await fetch(`http://localhost:3000/api/books/folioSociety`, {
-    cache: 'no-store',
-  })
-  const data = await res.json()
-  return data.message
-}
+'use client'
 
-const Books = async () => {
-  const message = await getMessage()
+const Books = () => {
+  const fetchProducts = async () => {
+    const res = await fetch(`/api/books/folio-society/products`)
+    results = await res.json()
+
+    console.log(results)
+  }
+
   return (
     <div className='flex flex-col items-center justify-center pt-6'>
       <h1 className='text-6xl'>BOOKS</h1>
       <div className='mt-10'>
-        <p>{message}</p>
+        <button
+          onClick={() => fetchProducts()}
+          className='rounded-3xl border-4 border-gray-800 bg-teal-400 p-4 hover:cursor-pointer'
+        >
+          Update
+        </button>
+        {/* <p>{message}</p> */}
       </div>
     </div>
   )

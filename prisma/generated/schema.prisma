@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model FolioProduct {
+  id                      Int         @id @default(autoincrement())
+  type                    String
+  book_id                 Int         @unique
+  sku                     String
+  title                   String
+  author                  Json
+  illustrator             Json
+  introduced_by           Json
+  short_description       String
+  editor_note_description String
+  category                String
+  bestseller              Int
+  created_at              DateTime
+  price                   Float
+  url                     String
+  main_image              String
+  main_image_label        String
+  thumbnail_image         String
+  thumbnail_label         String
+  swatch_image            String
+  media                   Json
+  breadcrumbs             Json
+  visibility              Json
+  stock_status            Int
+  store                   Int
+  verbosity               Int
+  stock                   FolioStock? @relation("ProductStock")
+}
+
+model FolioStock {
+  id          Int          @id @default(autoincrement())
+  type        String
+  book_id     Int          @unique
+  is_out_temp Boolean
+  quantity    Int
+  product     FolioProduct @relation("ProductStock", fields: [book_id], references: [book_id])
+}
