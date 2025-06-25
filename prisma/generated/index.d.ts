@@ -1002,8 +1002,6 @@ export namespace Prisma {
     collection_text: string | null
     category: string | null
     publication_date: Date | null
-    created_at: Date | null
-    updated_at: Date | null
     price: number | null
     url: string | null
     main_image: string | null
@@ -1025,8 +1023,6 @@ export namespace Prisma {
     collection_text: string | null
     category: string | null
     publication_date: Date | null
-    created_at: Date | null
-    updated_at: Date | null
     price: number | null
     url: string | null
     main_image: string | null
@@ -1052,8 +1048,6 @@ export namespace Prisma {
     collection_text: number
     category: number
     publication_date: number
-    created_at: number
-    updated_at: number
     price: number
     url: number
     main_image: number
@@ -1097,8 +1091,6 @@ export namespace Prisma {
     collection_text?: true
     category?: true
     publication_date?: true
-    created_at?: true
-    updated_at?: true
     price?: true
     url?: true
     main_image?: true
@@ -1120,8 +1112,6 @@ export namespace Prisma {
     collection_text?: true
     category?: true
     publication_date?: true
-    created_at?: true
-    updated_at?: true
     price?: true
     url?: true
     main_image?: true
@@ -1147,8 +1137,6 @@ export namespace Prisma {
     collection_text?: true
     category?: true
     publication_date?: true
-    created_at?: true
-    updated_at?: true
     price?: true
     url?: true
     main_image?: true
@@ -1263,8 +1251,6 @@ export namespace Prisma {
     collection_text: string
     category: string
     publication_date: Date
-    created_at: Date
-    updated_at: Date
     price: number
     url: string
     main_image: string
@@ -1311,8 +1297,6 @@ export namespace Prisma {
     collection_text?: boolean
     category?: boolean
     publication_date?: boolean
-    created_at?: boolean
-    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
@@ -1341,8 +1325,6 @@ export namespace Prisma {
     collection_text?: boolean
     category?: boolean
     publication_date?: boolean
-    created_at?: boolean
-    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
@@ -1370,8 +1352,6 @@ export namespace Prisma {
     collection_text?: boolean
     category?: boolean
     publication_date?: boolean
-    created_at?: boolean
-    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
@@ -1399,8 +1379,6 @@ export namespace Prisma {
     collection_text?: boolean
     category?: boolean
     publication_date?: boolean
-    created_at?: boolean
-    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
@@ -1412,7 +1390,7 @@ export namespace Prisma {
     verbosity?: boolean
   }
 
-  export type FolioProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "book_id" | "sku" | "title" | "author" | "illustrator" | "introduced_by" | "afterword_by" | "pages" | "short_description" | "editor_note_description" | "collection_text" | "category" | "publication_date" | "created_at" | "updated_at" | "price" | "url" | "main_image" | "thumbnail_image" | "media" | "visibility" | "stock_status" | "store" | "verbosity", ExtArgs["result"]["folioProduct"]>
+  export type FolioProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "book_id" | "sku" | "title" | "author" | "illustrator" | "introduced_by" | "afterword_by" | "pages" | "short_description" | "editor_note_description" | "collection_text" | "category" | "publication_date" | "price" | "url" | "main_image" | "thumbnail_image" | "media" | "visibility" | "stock_status" | "store" | "verbosity", ExtArgs["result"]["folioProduct"]>
   export type FolioProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     stock?: boolean | FolioProduct$stockArgs<ExtArgs>
   }
@@ -1440,8 +1418,6 @@ export namespace Prisma {
       collection_text: string
       category: string
       publication_date: Date
-      created_at: Date
-      updated_at: Date
       price: number
       url: string
       main_image: string
@@ -1890,8 +1866,6 @@ export namespace Prisma {
     readonly collection_text: FieldRef<"FolioProduct", 'String'>
     readonly category: FieldRef<"FolioProduct", 'String'>
     readonly publication_date: FieldRef<"FolioProduct", 'DateTime'>
-    readonly created_at: FieldRef<"FolioProduct", 'DateTime'>
-    readonly updated_at: FieldRef<"FolioProduct", 'DateTime'>
     readonly price: FieldRef<"FolioProduct", 'Float'>
     readonly url: FieldRef<"FolioProduct", 'String'>
     readonly main_image: FieldRef<"FolioProduct", 'String'>
@@ -3449,8 +3423,6 @@ export namespace Prisma {
     collection_text: 'collection_text',
     category: 'category',
     publication_date: 'publication_date',
-    created_at: 'created_at',
-    updated_at: 'updated_at',
     price: 'price',
     url: 'url',
     main_image: 'main_image',
@@ -3584,8 +3556,6 @@ export namespace Prisma {
     collection_text?: StringFilter<"FolioProduct"> | string
     category?: StringFilter<"FolioProduct"> | string
     publication_date?: DateTimeFilter<"FolioProduct"> | Date | string
-    created_at?: DateTimeFilter<"FolioProduct"> | Date | string
-    updated_at?: DateTimeFilter<"FolioProduct"> | Date | string
     price?: FloatFilter<"FolioProduct"> | number
     url?: StringFilter<"FolioProduct"> | string
     main_image?: StringFilter<"FolioProduct"> | string
@@ -3614,8 +3584,6 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -3647,8 +3615,6 @@ export namespace Prisma {
     collection_text?: StringFilter<"FolioProduct"> | string
     category?: StringFilter<"FolioProduct"> | string
     publication_date?: DateTimeFilter<"FolioProduct"> | Date | string
-    created_at?: DateTimeFilter<"FolioProduct"> | Date | string
-    updated_at?: DateTimeFilter<"FolioProduct"> | Date | string
     price?: FloatFilter<"FolioProduct"> | number
     url?: StringFilter<"FolioProduct"> | string
     main_image?: StringFilter<"FolioProduct"> | string
@@ -3677,8 +3643,6 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -3714,8 +3678,6 @@ export namespace Prisma {
     collection_text?: StringWithAggregatesFilter<"FolioProduct"> | string
     category?: StringWithAggregatesFilter<"FolioProduct"> | string
     publication_date?: DateTimeWithAggregatesFilter<"FolioProduct"> | Date | string
-    created_at?: DateTimeWithAggregatesFilter<"FolioProduct"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"FolioProduct"> | Date | string
     price?: FloatWithAggregatesFilter<"FolioProduct"> | number
     url?: StringWithAggregatesFilter<"FolioProduct"> | string
     main_image?: StringWithAggregatesFilter<"FolioProduct"> | string
@@ -3799,8 +3761,6 @@ export namespace Prisma {
     collection_text: string
     category: string
     publication_date: Date | string
-    created_at: Date | string
-    updated_at: Date | string
     price: number
     url: string
     main_image: string
@@ -3829,8 +3789,6 @@ export namespace Prisma {
     collection_text: string
     category: string
     publication_date: Date | string
-    created_at: Date | string
-    updated_at: Date | string
     price: number
     url: string
     main_image: string
@@ -3858,8 +3816,6 @@ export namespace Prisma {
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3888,8 +3844,6 @@ export namespace Prisma {
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3918,8 +3872,6 @@ export namespace Prisma {
     collection_text: string
     category: string
     publication_date: Date | string
-    created_at: Date | string
-    updated_at: Date | string
     price: number
     url: string
     main_image: string
@@ -3946,8 +3898,6 @@ export namespace Prisma {
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3975,8 +3925,6 @@ export namespace Prisma {
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -4126,8 +4074,6 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -4160,8 +4106,6 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -4183,8 +4127,6 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -4613,8 +4555,6 @@ export namespace Prisma {
     collection_text: string
     category: string
     publication_date: Date | string
-    created_at: Date | string
-    updated_at: Date | string
     price: number
     url: string
     main_image: string
@@ -4642,8 +4582,6 @@ export namespace Prisma {
     collection_text: string
     category: string
     publication_date: Date | string
-    created_at: Date | string
-    updated_at: Date | string
     price: number
     url: string
     main_image: string
@@ -4686,8 +4624,6 @@ export namespace Prisma {
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -4715,8 +4651,6 @@ export namespace Prisma {
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string

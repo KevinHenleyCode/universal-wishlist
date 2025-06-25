@@ -133,8 +133,6 @@ exports.Prisma.FolioProductScalarFieldEnum = {
   collection_text: 'collection_text',
   category: 'category',
   publication_date: 'publication_date',
-  created_at: 'created_at',
-  updated_at: 'updated_at',
   price: 'price',
   url: 'url',
   main_image: 'main_image',

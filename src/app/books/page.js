@@ -2,7 +2,7 @@
 
 const Books = () => {
   const fetchProducts = async () => {
-    const res = await fetch(`/api/books/folio-society/products`)
+    const res = await fetch(`/api/books/folio-society/product-db`)
     results = await res.json()
 
     console.log(results)
