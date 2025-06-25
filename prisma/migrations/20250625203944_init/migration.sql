@@ -31,7 +31,7 @@ CREATE TABLE "FolioStock" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "type" TEXT NOT NULL,
     "book_id" INTEGER NOT NULL,
-    "is_out_temp" BOOLEAN NOT NULL,
+    "is_out_temp" BOOLEAN,
     "quantity" INTEGER NOT NULL,
     CONSTRAINT "FolioStock_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "FolioProduct" ("book_id") ON DELETE RESTRICT ON UPDATE CASCADE
 );

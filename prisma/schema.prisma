@@ -47,7 +47,7 @@ model FolioStock {
   id                      Int @id @default(autoincrement())
   type                    String
   book_id                 Int @unique
-  is_out_temp             Boolean
+  is_out_temp             Boolean?
   quantity                Int
   product                 FolioProduct @relation("ProductStock", fields: [book_id], references: [book_id])
 }

@@ -9,6 +9,13 @@ const Books = () => {
     console.log(results)
   }
 
+  const fetchStock = async () => {
+    const res = await fetch(`/api/books/folio-society/stock-db`)
+    results = await res.json()
+
+    console.log(results)
+  }
+
   return (
     <div className='flex flex-col items-center justify-center pt-6'>
       <h1 className='text-6xl'>BOOKS</h1>
@@ -17,7 +24,13 @@ const Books = () => {
           onClick={() => fetchProducts()}
           className='rounded-3xl border-4 border-gray-800 bg-teal-400 p-4 hover:cursor-pointer'
         >
-          Update
+          Update Product DB
+        </button>
+        <button
+          onClick={() => fetchStock()}
+          className='rounded-3xl border-4 border-gray-800 bg-teal-400 p-4 hover:cursor-pointer'
+        >
+          Update Stock DB
         </button>
       </div>
     </div>
