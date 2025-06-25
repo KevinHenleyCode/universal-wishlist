@@ -42,6 +42,7 @@ Thumbs.db
 
 # Prisma
 prisma/db/*
+prisma/generated/schema.prisma
 
 # SQLite
 *.sqlite
