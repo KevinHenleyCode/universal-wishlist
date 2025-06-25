@@ -1,6 +1,7 @@
 'use client'
 
 const Books = () => {
+  // makes a call to the /product-db endpoint to push newest data to FolioProduct table
   const fetchProducts = async () => {
     const res = await fetch(`/api/books/folio-society/product-db`)
     results = await res.json()
@@ -18,7 +19,6 @@ const Books = () => {
         >
           Update
         </button>
-        {/* <p>{message}</p> */}
       </div>
     </div>
   )

@@ -29,7 +29,7 @@ model FolioProduct {
   editor_note_description String
   collection_text         String
   category                String
-  publication_date        DateTime
+  publication_date        DateTime?
   price                   Float
   url                     String
   main_image              String

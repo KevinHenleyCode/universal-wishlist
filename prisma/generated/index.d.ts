@@ -1250,7 +1250,7 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date: Date
+    publication_date: Date | null
     price: number
     url: string
     main_image: string
@@ -1417,7 +1417,7 @@ export namespace Prisma {
       editor_note_description: string
       collection_text: string
       category: string
-      publication_date: Date
+      publication_date: Date | null
       price: number
       url: string
       main_image: string
@@ -3480,6 +3480,14 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
   /**
    * Field references
    */
@@ -3555,7 +3563,7 @@ export namespace Prisma {
     editor_note_description?: StringFilter<"FolioProduct"> | string
     collection_text?: StringFilter<"FolioProduct"> | string
     category?: StringFilter<"FolioProduct"> | string
-    publication_date?: DateTimeFilter<"FolioProduct"> | Date | string
+    publication_date?: DateTimeNullableFilter<"FolioProduct"> | Date | string | null
     price?: FloatFilter<"FolioProduct"> | number
     url?: StringFilter<"FolioProduct"> | string
     main_image?: StringFilter<"FolioProduct"> | string
@@ -3583,7 +3591,7 @@ export namespace Prisma {
     editor_note_description?: SortOrder
     collection_text?: SortOrder
     category?: SortOrder
-    publication_date?: SortOrder
+    publication_date?: SortOrderInput | SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -3614,7 +3622,7 @@ export namespace Prisma {
     editor_note_description?: StringFilter<"FolioProduct"> | string
     collection_text?: StringFilter<"FolioProduct"> | string
     category?: StringFilter<"FolioProduct"> | string
-    publication_date?: DateTimeFilter<"FolioProduct"> | Date | string
+    publication_date?: DateTimeNullableFilter<"FolioProduct"> | Date | string | null
     price?: FloatFilter<"FolioProduct"> | number
     url?: StringFilter<"FolioProduct"> | string
     main_image?: StringFilter<"FolioProduct"> | string
@@ -3642,7 +3650,7 @@ export namespace Prisma {
     editor_note_description?: SortOrder
     collection_text?: SortOrder
     category?: SortOrder
-    publication_date?: SortOrder
+    publication_date?: SortOrderInput | SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -3677,7 +3685,7 @@ export namespace Prisma {
     editor_note_description?: StringWithAggregatesFilter<"FolioProduct"> | string
     collection_text?: StringWithAggregatesFilter<"FolioProduct"> | string
     category?: StringWithAggregatesFilter<"FolioProduct"> | string
-    publication_date?: DateTimeWithAggregatesFilter<"FolioProduct"> | Date | string
+    publication_date?: DateTimeNullableWithAggregatesFilter<"FolioProduct"> | Date | string | null
     price?: FloatWithAggregatesFilter<"FolioProduct"> | number
     url?: StringWithAggregatesFilter<"FolioProduct"> | string
     main_image?: StringWithAggregatesFilter<"FolioProduct"> | string
@@ -3760,7 +3768,7 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date: Date | string
+    publication_date?: Date | string | null
     price: number
     url: string
     main_image: string
@@ -3788,7 +3796,7 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date: Date | string
+    publication_date?: Date | string | null
     price: number
     url: string
     main_image: string
@@ -3815,7 +3823,7 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3843,7 +3851,7 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3871,7 +3879,7 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date: Date | string
+    publication_date?: Date | string | null
     price: number
     url: string
     main_image: string
@@ -3897,7 +3905,7 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3924,7 +3932,7 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -4031,15 +4039,15 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -4056,6 +4064,11 @@ export namespace Prisma {
   export type FolioStockNullableScalarRelationFilter = {
     is?: FolioStockWhereInput | null
     isNot?: FolioStockWhereInput | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type FolioProductCountOrderByAggregateInput = {
@@ -4199,18 +4212,18 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -4307,8 +4320,8 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -4382,15 +4395,15 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -4455,18 +4468,29 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -4554,7 +4578,7 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date: Date | string
+    publication_date?: Date | string | null
     price: number
     url: string
     main_image: string
@@ -4581,7 +4605,7 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date: Date | string
+    publication_date?: Date | string | null
     price: number
     url: string
     main_image: string
@@ -4623,7 +4647,7 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -4650,7 +4674,7 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string

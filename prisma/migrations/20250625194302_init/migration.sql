@@ -14,7 +14,7 @@ CREATE TABLE "FolioProduct" (
     "editor_note_description" TEXT NOT NULL,
     "collection_text" TEXT NOT NULL,
     "category" TEXT NOT NULL,
-    "publication_date" DATETIME NOT NULL,
+    "publication_date" DATETIME,
     "price" REAL NOT NULL,
     "url" TEXT NOT NULL,
     "main_image" TEXT NOT NULL,

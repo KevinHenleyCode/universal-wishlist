@@ -3,6 +3,7 @@ import { PrismaClient } from '../../../../../../prisma/generated'
 const prisma = new PrismaClient()
 
 export async function GET() {
+  // sanitizes the date since it isn't always consistent
   const convertDate = (dateData) => {
     if (!dateData || typeof dateData !== 'string') return null
 
@@ -13,6 +14,13 @@ export async function GET() {
     const m = parseInt(month, 10) - 1
     const y = parseInt(year, 10)
 
+    // checks to make sure dates are realistic
+    if (y < 1900 || y > 2100 || m < 0 || m > 11 || d < 1 || d > 31) {
+      return null
+    } else if (!/^\d{4}$/.test(y)) {
+      return null
+    }
+
     const isoString = new Date(Date.UTC(y, m, d))
     return isNaN(isoString.getTime()) ? null : isoString
   }
@@ -22,10 +30,8 @@ export async function GET() {
 
   const res = await fetch(url)
   const data = await res.json()
-  console.log(`
-    __________________Here's the DATA________________________
-    ${data.result[0].name}`)
 
+  // attempts to add data to database and has several fallbacks date sanitization
   try {
     for (const product of data.result) {
       await prisma.folioProduct.upsert({
@@ -61,6 +67,7 @@ export async function GET() {
       })
     }
   } catch (err) {
+    // if for some reason an error occurs, this will print a readable version. Helps keep Prisma errors from being too loud
     console.error(`____________[PRISMA ERROR]____________
     ${err.message}  
   `)
