@@ -1,8 +1,13 @@
+import { NextResponse } from 'next/server'
+import { PrismaClient } from '../../../../../prisma/generated'
+const prisma = new PrismaClient()
+
 export async function GET() {
-  return new Response(
-    JSON.stringify({ message: `Here's the list of Folio Society Books` }),
-    {
-      headers: { 'Content-Type': 'application/json' },
-    }
-  )
+  const data = await prisma.folioProduct.findMany({
+    include: {
+      stock: true,
+    },
+  })
+
+  return NextResponse.json({ success: true, data })
 }

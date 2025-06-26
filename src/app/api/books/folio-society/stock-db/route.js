@@ -3,7 +3,7 @@ import { PrismaClient } from '../../../../../../prisma/generated'
 const prisma = new PrismaClient()
 
 export async function GET() {
-  const id = 16
+  const id = 4621
   const url = `${process.env.FOLIO_SOCIETY_API_URL}stock&verbosity=1&ids=${id}&pushDeps=true`
 
   const res = await fetch(url)
