@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 export async function GET() {
   const id = 16
-  const url = `${process.env.FOLIO_SOCIETY_API_URL}stock&verbosity=3&ids=${id}&pushDeps=true`
+  const url = `${process.env.FOLIO_SOCIETY_API_URL}stock&verbosity=1&ids=${id}&pushDeps=true`
 
   const res = await fetch(url)
   const data = await res.json()
@@ -13,7 +13,10 @@ export async function GET() {
     for (const stock of data.result) {
       await prisma.folioStock.upsert({
         where: { book_id: stock.id },
-        update: { type: stock.type },
+        update: {
+          is_out_temp: stock.isOutTemp ?? false,
+          quantity: stock.qty ?? 12345678,
+        },
         create: {
           type: stock.type ?? 'NULL',
           book_id: stock.id,
