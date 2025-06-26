@@ -8,9 +8,6 @@ export async function GET() {
 
   const res = await fetch(url)
   const data = await res.json()
-  console.log(`______________________
-    ${data.result[0].id}
-  ________________________`)
 
   try {
     for (const stock of data.result) {

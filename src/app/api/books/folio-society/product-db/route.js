@@ -1,33 +1,14 @@
 import { NextResponse } from 'next/server'
+import convertDate from '@/lib/utils/convertDate'
+import convertDateWTime from '@/lib/utils/convertDateWTime'
 import { PrismaClient } from '../../../../../../prisma/generated'
 const prisma = new PrismaClient()
 
 export async function GET() {
-  // sanitizes the date since it isn't always consistent
-  const convertDate = (dateData) => {
-    if (!dateData || typeof dateData !== 'string') return null
-
-    const [day, month, year] = dateData.split('/')
-    if (!day || !month || !year) return null
-
-    const d = parseInt(day, 10)
-    const m = parseInt(month, 10) - 1
-    const y = parseInt(year, 10)
-
-    // checks to make sure dates are realistic
-    if (y < 1900 || y > 2100 || m < 0 || m > 11 || d < 1 || d > 31) {
-      return null
-    } else if (!/^\d{4}$/.test(y)) {
-      return null
-    }
-
-    const isoString = new Date(Date.UTC(y, m, d))
-    return isNaN(isoString.getTime()) ? null : isoString
-  }
-
   const id = 16
   const url = `${process.env.FOLIO_SOCIETY_API_URL}product&verbosity=3&ids=${id}&pushDeps=true`
 
+  // fetches from Folio Society's API
   const res = await fetch(url)
   const data = await res.json()
 
@@ -37,7 +18,12 @@ export async function GET() {
       await prisma.folioProduct.upsert({
         where: { book_id: product.id },
         update: {
-          type: product.type,
+          editor_note_description: product.editor_note_description ?? 'NULL',
+          updated_at: convertDateWTime(product._updated_at),
+          price: product.price ?? 12345678.99,
+          visibility: product.visibility ?? {},
+          stock_status: product.stock_status ?? 12345678,
+          verbosity: product.verbosity ?? 12345678,
         },
         create: {
           type: product.type ?? 'NULL',
@@ -54,6 +40,7 @@ export async function GET() {
           collection_text: product.collection_text ?? 'NULL',
           category: product.category_path ?? 'NULL',
           publication_date: convertDate(product.publication_date),
+          updated_at: convertDateWTime(product._updated_at),
           price: product.price ?? 12345678.99,
           url: product.url ?? 'NULL',
           main_image: product.swatch_image ?? 'NULL',

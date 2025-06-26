@@ -1001,7 +1001,8 @@ export namespace Prisma {
     editor_note_description: string | null
     collection_text: string | null
     category: string | null
-    publication_date: Date | null
+    publication_date: string | null
+    updated_at: string | null
     price: number | null
     url: string | null
     main_image: string | null
@@ -1022,7 +1023,8 @@ export namespace Prisma {
     editor_note_description: string | null
     collection_text: string | null
     category: string | null
-    publication_date: Date | null
+    publication_date: string | null
+    updated_at: string | null
     price: number | null
     url: string | null
     main_image: string | null
@@ -1048,6 +1050,7 @@ export namespace Prisma {
     collection_text: number
     category: number
     publication_date: number
+    updated_at: number
     price: number
     url: number
     main_image: number
@@ -1091,6 +1094,7 @@ export namespace Prisma {
     collection_text?: true
     category?: true
     publication_date?: true
+    updated_at?: true
     price?: true
     url?: true
     main_image?: true
@@ -1112,6 +1116,7 @@ export namespace Prisma {
     collection_text?: true
     category?: true
     publication_date?: true
+    updated_at?: true
     price?: true
     url?: true
     main_image?: true
@@ -1137,6 +1142,7 @@ export namespace Prisma {
     collection_text?: true
     category?: true
     publication_date?: true
+    updated_at?: true
     price?: true
     url?: true
     main_image?: true
@@ -1250,7 +1256,8 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date: Date | null
+    publication_date: string | null
+    updated_at: string | null
     price: number
     url: string
     main_image: string
@@ -1297,6 +1304,7 @@ export namespace Prisma {
     collection_text?: boolean
     category?: boolean
     publication_date?: boolean
+    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
@@ -1325,6 +1333,7 @@ export namespace Prisma {
     collection_text?: boolean
     category?: boolean
     publication_date?: boolean
+    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
@@ -1352,6 +1361,7 @@ export namespace Prisma {
     collection_text?: boolean
     category?: boolean
     publication_date?: boolean
+    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
@@ -1379,6 +1389,7 @@ export namespace Prisma {
     collection_text?: boolean
     category?: boolean
     publication_date?: boolean
+    updated_at?: boolean
     price?: boolean
     url?: boolean
     main_image?: boolean
@@ -1390,7 +1401,7 @@ export namespace Prisma {
     verbosity?: boolean
   }
 
-  export type FolioProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "book_id" | "sku" | "title" | "author" | "illustrator" | "introduced_by" | "afterword_by" | "pages" | "short_description" | "editor_note_description" | "collection_text" | "category" | "publication_date" | "price" | "url" | "main_image" | "thumbnail_image" | "media" | "visibility" | "stock_status" | "store" | "verbosity", ExtArgs["result"]["folioProduct"]>
+  export type FolioProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "book_id" | "sku" | "title" | "author" | "illustrator" | "introduced_by" | "afterword_by" | "pages" | "short_description" | "editor_note_description" | "collection_text" | "category" | "publication_date" | "updated_at" | "price" | "url" | "main_image" | "thumbnail_image" | "media" | "visibility" | "stock_status" | "store" | "verbosity", ExtArgs["result"]["folioProduct"]>
   export type FolioProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     stock?: boolean | FolioProduct$stockArgs<ExtArgs>
   }
@@ -1417,7 +1428,8 @@ export namespace Prisma {
       editor_note_description: string
       collection_text: string
       category: string
-      publication_date: Date | null
+      publication_date: string | null
+      updated_at: string | null
       price: number
       url: string
       main_image: string
@@ -1865,7 +1877,8 @@ export namespace Prisma {
     readonly editor_note_description: FieldRef<"FolioProduct", 'String'>
     readonly collection_text: FieldRef<"FolioProduct", 'String'>
     readonly category: FieldRef<"FolioProduct", 'String'>
-    readonly publication_date: FieldRef<"FolioProduct", 'DateTime'>
+    readonly publication_date: FieldRef<"FolioProduct", 'String'>
+    readonly updated_at: FieldRef<"FolioProduct", 'String'>
     readonly price: FieldRef<"FolioProduct", 'Float'>
     readonly url: FieldRef<"FolioProduct", 'String'>
     readonly main_image: FieldRef<"FolioProduct", 'String'>
@@ -3423,6 +3436,7 @@ export namespace Prisma {
     collection_text: 'collection_text',
     category: 'category',
     publication_date: 'publication_date',
+    updated_at: 'updated_at',
     price: 'price',
     url: 'url',
     main_image: 'main_image',
@@ -3522,13 +3536,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
-   */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3563,7 +3570,8 @@ export namespace Prisma {
     editor_note_description?: StringFilter<"FolioProduct"> | string
     collection_text?: StringFilter<"FolioProduct"> | string
     category?: StringFilter<"FolioProduct"> | string
-    publication_date?: DateTimeNullableFilter<"FolioProduct"> | Date | string | null
+    publication_date?: StringNullableFilter<"FolioProduct"> | string | null
+    updated_at?: StringNullableFilter<"FolioProduct"> | string | null
     price?: FloatFilter<"FolioProduct"> | number
     url?: StringFilter<"FolioProduct"> | string
     main_image?: StringFilter<"FolioProduct"> | string
@@ -3592,6 +3600,7 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrderInput | SortOrder
+    updated_at?: SortOrderInput | SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -3622,7 +3631,8 @@ export namespace Prisma {
     editor_note_description?: StringFilter<"FolioProduct"> | string
     collection_text?: StringFilter<"FolioProduct"> | string
     category?: StringFilter<"FolioProduct"> | string
-    publication_date?: DateTimeNullableFilter<"FolioProduct"> | Date | string | null
+    publication_date?: StringNullableFilter<"FolioProduct"> | string | null
+    updated_at?: StringNullableFilter<"FolioProduct"> | string | null
     price?: FloatFilter<"FolioProduct"> | number
     url?: StringFilter<"FolioProduct"> | string
     main_image?: StringFilter<"FolioProduct"> | string
@@ -3651,6 +3661,7 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrderInput | SortOrder
+    updated_at?: SortOrderInput | SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -3685,7 +3696,8 @@ export namespace Prisma {
     editor_note_description?: StringWithAggregatesFilter<"FolioProduct"> | string
     collection_text?: StringWithAggregatesFilter<"FolioProduct"> | string
     category?: StringWithAggregatesFilter<"FolioProduct"> | string
-    publication_date?: DateTimeNullableWithAggregatesFilter<"FolioProduct"> | Date | string | null
+    publication_date?: StringNullableWithAggregatesFilter<"FolioProduct"> | string | null
+    updated_at?: StringNullableWithAggregatesFilter<"FolioProduct"> | string | null
     price?: FloatWithAggregatesFilter<"FolioProduct"> | number
     url?: StringWithAggregatesFilter<"FolioProduct"> | string
     main_image?: StringWithAggregatesFilter<"FolioProduct"> | string
@@ -3768,7 +3780,8 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date?: Date | string | null
+    publication_date?: string | null
+    updated_at?: string | null
     price: number
     url: string
     main_image: string
@@ -3796,7 +3809,8 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date?: Date | string | null
+    publication_date?: string | null
+    updated_at?: string | null
     price: number
     url: string
     main_image: string
@@ -3823,7 +3837,8 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableStringFieldUpdateOperationsInput | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3851,7 +3866,8 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableStringFieldUpdateOperationsInput | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3879,7 +3895,8 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date?: Date | string | null
+    publication_date?: string | null
+    updated_at?: string | null
     price: number
     url: string
     main_image: string
@@ -3905,7 +3922,8 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableStringFieldUpdateOperationsInput | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -3932,7 +3950,8 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableStringFieldUpdateOperationsInput | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -4039,15 +4058,18 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -4087,6 +4109,7 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrder
+    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -4119,6 +4142,7 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrder
+    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -4140,6 +4164,7 @@ export namespace Prisma {
     collection_text?: SortOrder
     category?: SortOrder
     publication_date?: SortOrder
+    updated_at?: SortOrder
     price?: SortOrder
     url?: SortOrder
     main_image?: SortOrder
@@ -4212,18 +4237,21 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -4320,8 +4348,8 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -4395,15 +4423,18 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -4468,18 +4499,21 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
@@ -4578,7 +4612,8 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date?: Date | string | null
+    publication_date?: string | null
+    updated_at?: string | null
     price: number
     url: string
     main_image: string
@@ -4605,7 +4640,8 @@ export namespace Prisma {
     editor_note_description: string
     collection_text: string
     category: string
-    publication_date?: Date | string | null
+    publication_date?: string | null
+    updated_at?: string | null
     price: number
     url: string
     main_image: string
@@ -4647,7 +4683,8 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableStringFieldUpdateOperationsInput | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string
@@ -4674,7 +4711,8 @@ export namespace Prisma {
     editor_note_description?: StringFieldUpdateOperationsInput | string
     collection_text?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableStringFieldUpdateOperationsInput | string | null
     price?: FloatFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     main_image?: StringFieldUpdateOperationsInput | string

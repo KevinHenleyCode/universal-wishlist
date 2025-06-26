@@ -4,16 +4,21 @@ const Books = () => {
   // makes a call to the /product-db endpoint to push newest data to FolioProduct table
   const fetchProducts = async () => {
     const res = await fetch(`/api/books/folio-society/product-db`)
-    results = await res.json()
+    const results = await res.json()
 
-    console.log(results)
+    if (results.success === true) {
+      fetchStock()
+      console.log(`Product-Success: ${results.success}`)
+    }
   }
 
   const fetchStock = async () => {
     const res = await fetch(`/api/books/folio-society/stock-db`)
-    results = await res.json()
+    const results = await res.json()
 
-    console.log(results)
+    if (results.success === true) {
+      console.log(`Stock-Success: ${results.success}`)
+    }
   }
 
   return (
@@ -24,13 +29,7 @@ const Books = () => {
           onClick={() => fetchProducts()}
           className='rounded-3xl border-4 border-gray-800 bg-teal-400 p-4 hover:cursor-pointer'
         >
-          Update Product DB
-        </button>
-        <button
-          onClick={() => fetchStock()}
-          className='rounded-3xl border-4 border-gray-800 bg-teal-400 p-4 hover:cursor-pointer'
-        >
-          Update Stock DB
+          ADD TO DB
         </button>
       </div>
     </div>
