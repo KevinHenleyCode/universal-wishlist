@@ -10,6 +10,7 @@ export async function GET() {
     Array.from({ length: end - start + 1 }, (_, i) => i + start)
 
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+  const recordsChecked = []
 
   while (toNumber <= 200) {
     const bookList = rangeArray(fromNumber, toNumber)
@@ -33,6 +34,8 @@ export async function GET() {
       const validStock = data.result.filter((s) => existingIds.has(s.id))
 
       console.log(`Total existing books in this batch: ${validStock.length}`)
+
+      recordsChecked.push(...validStock)
 
       for (const stock of validStock) {
         await prisma.folioStock.upsert({
@@ -62,6 +65,7 @@ export async function GET() {
 
     await sleep(3000)
   }
+  const totalRecordsChecked = recordsChecked.length
 
-  return NextResponse.json({ success: true })
+  return NextResponse.json({ success: true, totalRecordsChecked })
 }
