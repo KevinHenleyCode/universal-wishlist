@@ -2340,6 +2340,7 @@ export namespace Prisma {
     type: string | null
     book_id: number | null
     is_out_temp: boolean | null
+    isOut: boolean | null
     quantity: number | null
   }
 
@@ -2348,6 +2349,7 @@ export namespace Prisma {
     type: string | null
     book_id: number | null
     is_out_temp: boolean | null
+    isOut: boolean | null
     quantity: number | null
   }
 
@@ -2356,6 +2358,7 @@ export namespace Prisma {
     type: number
     book_id: number
     is_out_temp: number
+    isOut: number
     quantity: number
     _all: number
   }
@@ -2378,6 +2381,7 @@ export namespace Prisma {
     type?: true
     book_id?: true
     is_out_temp?: true
+    isOut?: true
     quantity?: true
   }
 
@@ -2386,6 +2390,7 @@ export namespace Prisma {
     type?: true
     book_id?: true
     is_out_temp?: true
+    isOut?: true
     quantity?: true
   }
 
@@ -2394,6 +2399,7 @@ export namespace Prisma {
     type?: true
     book_id?: true
     is_out_temp?: true
+    isOut?: true
     quantity?: true
     _all?: true
   }
@@ -2489,7 +2495,8 @@ export namespace Prisma {
     type: string
     book_id: number
     is_out_temp: boolean | null
-    quantity: number
+    isOut: boolean | null
+    quantity: number | null
     _count: FolioStockCountAggregateOutputType | null
     _avg: FolioStockAvgAggregateOutputType | null
     _sum: FolioStockSumAggregateOutputType | null
@@ -2516,6 +2523,7 @@ export namespace Prisma {
     type?: boolean
     book_id?: boolean
     is_out_temp?: boolean
+    isOut?: boolean
     quantity?: boolean
     product?: boolean | FolioProductDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["folioStock"]>
@@ -2525,6 +2533,7 @@ export namespace Prisma {
     type?: boolean
     book_id?: boolean
     is_out_temp?: boolean
+    isOut?: boolean
     quantity?: boolean
     product?: boolean | FolioProductDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["folioStock"]>
@@ -2534,6 +2543,7 @@ export namespace Prisma {
     type?: boolean
     book_id?: boolean
     is_out_temp?: boolean
+    isOut?: boolean
     quantity?: boolean
     product?: boolean | FolioProductDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["folioStock"]>
@@ -2543,10 +2553,11 @@ export namespace Prisma {
     type?: boolean
     book_id?: boolean
     is_out_temp?: boolean
+    isOut?: boolean
     quantity?: boolean
   }
 
-  export type FolioStockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "book_id" | "is_out_temp" | "quantity", ExtArgs["result"]["folioStock"]>
+  export type FolioStockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "book_id" | "is_out_temp" | "isOut" | "quantity", ExtArgs["result"]["folioStock"]>
   export type FolioStockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     product?: boolean | FolioProductDefaultArgs<ExtArgs>
   }
@@ -2567,7 +2578,8 @@ export namespace Prisma {
       type: string
       book_id: number
       is_out_temp: boolean | null
-      quantity: number
+      isOut: boolean | null
+      quantity: number | null
     }, ExtArgs["result"]["folioStock"]>
     composites: {}
   }
@@ -2996,6 +3008,7 @@ export namespace Prisma {
     readonly type: FieldRef<"FolioStock", 'String'>
     readonly book_id: FieldRef<"FolioStock", 'Int'>
     readonly is_out_temp: FieldRef<"FolioStock", 'Boolean'>
+    readonly isOut: FieldRef<"FolioStock", 'Boolean'>
     readonly quantity: FieldRef<"FolioStock", 'Int'>
   }
     
@@ -3456,6 +3469,7 @@ export namespace Prisma {
     type: 'type',
     book_id: 'book_id',
     is_out_temp: 'is_out_temp',
+    isOut: 'isOut',
     quantity: 'quantity'
   };
 
@@ -3717,7 +3731,8 @@ export namespace Prisma {
     type?: StringFilter<"FolioStock"> | string
     book_id?: IntFilter<"FolioStock"> | number
     is_out_temp?: BoolNullableFilter<"FolioStock"> | boolean | null
-    quantity?: IntFilter<"FolioStock"> | number
+    isOut?: BoolNullableFilter<"FolioStock"> | boolean | null
+    quantity?: IntNullableFilter<"FolioStock"> | number | null
     product?: XOR<FolioProductScalarRelationFilter, FolioProductWhereInput>
   }
 
@@ -3726,7 +3741,8 @@ export namespace Prisma {
     type?: SortOrder
     book_id?: SortOrder
     is_out_temp?: SortOrderInput | SortOrder
-    quantity?: SortOrder
+    isOut?: SortOrderInput | SortOrder
+    quantity?: SortOrderInput | SortOrder
     product?: FolioProductOrderByWithRelationInput
   }
 
@@ -3738,7 +3754,8 @@ export namespace Prisma {
     NOT?: FolioStockWhereInput | FolioStockWhereInput[]
     type?: StringFilter<"FolioStock"> | string
     is_out_temp?: BoolNullableFilter<"FolioStock"> | boolean | null
-    quantity?: IntFilter<"FolioStock"> | number
+    isOut?: BoolNullableFilter<"FolioStock"> | boolean | null
+    quantity?: IntNullableFilter<"FolioStock"> | number | null
     product?: XOR<FolioProductScalarRelationFilter, FolioProductWhereInput>
   }, "id" | "book_id">
 
@@ -3747,7 +3764,8 @@ export namespace Prisma {
     type?: SortOrder
     book_id?: SortOrder
     is_out_temp?: SortOrderInput | SortOrder
-    quantity?: SortOrder
+    isOut?: SortOrderInput | SortOrder
+    quantity?: SortOrderInput | SortOrder
     _count?: FolioStockCountOrderByAggregateInput
     _avg?: FolioStockAvgOrderByAggregateInput
     _max?: FolioStockMaxOrderByAggregateInput
@@ -3763,7 +3781,8 @@ export namespace Prisma {
     type?: StringWithAggregatesFilter<"FolioStock"> | string
     book_id?: IntWithAggregatesFilter<"FolioStock"> | number
     is_out_temp?: BoolNullableWithAggregatesFilter<"FolioStock"> | boolean | null
-    quantity?: IntWithAggregatesFilter<"FolioStock"> | number
+    isOut?: BoolNullableWithAggregatesFilter<"FolioStock"> | boolean | null
+    quantity?: IntNullableWithAggregatesFilter<"FolioStock"> | number | null
   }
 
   export type FolioProductCreateInput = {
@@ -3966,7 +3985,8 @@ export namespace Prisma {
   export type FolioStockCreateInput = {
     type: string
     is_out_temp?: boolean | null
-    quantity: number
+    isOut?: boolean | null
+    quantity?: number | null
     product: FolioProductCreateNestedOneWithoutStockInput
   }
 
@@ -3975,13 +3995,15 @@ export namespace Prisma {
     type: string
     book_id: number
     is_out_temp?: boolean | null
-    quantity: number
+    isOut?: boolean | null
+    quantity?: number | null
   }
 
   export type FolioStockUpdateInput = {
     type?: StringFieldUpdateOperationsInput | string
     is_out_temp?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    quantity?: IntFieldUpdateOperationsInput | number
+    isOut?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
     product?: FolioProductUpdateOneRequiredWithoutStockNestedInput
   }
 
@@ -3990,7 +4012,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     book_id?: IntFieldUpdateOperationsInput | number
     is_out_temp?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    quantity?: IntFieldUpdateOperationsInput | number
+    isOut?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type FolioStockCreateManyInput = {
@@ -3998,13 +4021,15 @@ export namespace Prisma {
     type: string
     book_id: number
     is_out_temp?: boolean | null
-    quantity: number
+    isOut?: boolean | null
+    quantity?: number | null
   }
 
   export type FolioStockUpdateManyMutationInput = {
     type?: StringFieldUpdateOperationsInput | string
     is_out_temp?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    quantity?: IntFieldUpdateOperationsInput | number
+    isOut?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type FolioStockUncheckedUpdateManyInput = {
@@ -4012,7 +4037,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     book_id?: IntFieldUpdateOperationsInput | number
     is_out_temp?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    quantity?: IntFieldUpdateOperationsInput | number
+    isOut?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -4275,6 +4301,17 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type FolioProductScalarRelationFilter = {
     is?: FolioProductWhereInput
     isNot?: FolioProductWhereInput
@@ -4285,6 +4322,7 @@ export namespace Prisma {
     type?: SortOrder
     book_id?: SortOrder
     is_out_temp?: SortOrder
+    isOut?: SortOrder
     quantity?: SortOrder
   }
 
@@ -4299,6 +4337,7 @@ export namespace Prisma {
     type?: SortOrder
     book_id?: SortOrder
     is_out_temp?: SortOrder
+    isOut?: SortOrder
     quantity?: SortOrder
   }
 
@@ -4307,6 +4346,7 @@ export namespace Prisma {
     type?: SortOrder
     book_id?: SortOrder
     is_out_temp?: SortOrder
+    isOut?: SortOrder
     quantity?: SortOrder
   }
 
@@ -4322,6 +4362,22 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type FolioStockCreateNestedOneWithoutProductInput = {
@@ -4388,6 +4444,14 @@ export namespace Prisma {
 
   export type NullableBoolFieldUpdateOperationsInput = {
     set?: boolean | null
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type FolioProductUpdateOneRequiredWithoutStockNestedInput = {
@@ -4556,17 +4620,46 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type FolioStockCreateWithoutProductInput = {
     type: string
     is_out_temp?: boolean | null
-    quantity: number
+    isOut?: boolean | null
+    quantity?: number | null
   }
 
   export type FolioStockUncheckedCreateWithoutProductInput = {
     id?: number
     type: string
     is_out_temp?: boolean | null
-    quantity: number
+    isOut?: boolean | null
+    quantity?: number | null
   }
 
   export type FolioStockCreateOrConnectWithoutProductInput = {
@@ -4588,14 +4681,16 @@ export namespace Prisma {
   export type FolioStockUpdateWithoutProductInput = {
     type?: StringFieldUpdateOperationsInput | string
     is_out_temp?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    quantity?: IntFieldUpdateOperationsInput | number
+    isOut?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type FolioStockUncheckedUpdateWithoutProductInput = {
     id?: IntFieldUpdateOperationsInput | number
     type?: StringFieldUpdateOperationsInput | string
     is_out_temp?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    quantity?: IntFieldUpdateOperationsInput | number
+    isOut?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    quantity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type FolioProductCreateWithoutStockInput = {

@@ -150,6 +150,7 @@ exports.Prisma.FolioStockScalarFieldEnum = {
   type: 'type',
   book_id: 'book_id',
   is_out_temp: 'is_out_temp',
+  isOut: 'isOut',
   quantity: 'quantity'
 };
 
