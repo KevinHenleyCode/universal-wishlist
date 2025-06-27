@@ -62,7 +62,7 @@ const Books = () => {
               <h3 className='text-2xl font-bold'>{book.title}</h3>
               <p className='font-semibold text-teal-600'>
                 <b className='text-black'>Quantity: </b>
-                {book.stock.quantity}
+                {book?.stock?.quantity}
               </p>
             </span>
           ))}
