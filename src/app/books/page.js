@@ -34,7 +34,7 @@ const Books = () => {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center pt-6'>
+    <div className='flex flex-col items-center justify-center'>
       <h1 className='text-6xl'>BOOKS</h1>
       <div className='mt-10'>
         <button
@@ -53,17 +53,22 @@ const Books = () => {
         </button>
       </div>
       <div className=''>
-        <div className='mt-10 grid grid-cols-12 gap-4'>
+        <div className='mt-10 grid grid-cols-12 gap-x-8 gap-y-4'>
           {library.map((book) => (
             <span
               key={book.book_id}
-              className='col-span-6 rounded-lg border-2 border-yellow-400 bg-gray-300 p-8'
+              className='col-span-3 rounded-lg border-2 border-yellow-400 bg-gray-300 p-8'
             >
               <h3 className='text-2xl font-bold'>{book.title}</h3>
-              <p className='font-semibold text-teal-600'>
-                <b className='text-black'>Quantity: </b>
-                {book?.stock?.quantity}
-              </p>
+              <span className='flex font-semibold'>
+                <b className='mr-2'>Quantity: </b>
+
+                {book.stock.quantity === null ? (
+                  <p className='text-orange-800'>Out of Stock</p>
+                ) : (
+                  <p className='text-teal-600'>{book.stock.quantity}</p>
+                )}
+              </span>
             </span>
           ))}
         </div>

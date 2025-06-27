@@ -7,6 +7,8 @@ const prisma = new PrismaClient()
 export async function GET() {
   let fromNumber = 1
   let toNumber = 50
+  const increaseBy = 50
+  const listTotal = 200
 
   // generate an array with an adjustable start and end index
   const rangeArray = (start, end) =>
@@ -15,7 +17,7 @@ export async function GET() {
   // allows a timeout after each fetch to make sure it's not overwhelming the api
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-  while (toNumber <= 200) {
+  while (toNumber <= listTotal) {
     const bookList = rangeArray(fromNumber, toNumber)
     const url = `${process.env.FOLIO_SOCIETY_API_URL}product&verbosity=3&ids=${bookList}&pushDeps=true`
 
@@ -73,8 +75,8 @@ export async function GET() {
   `)
     }
 
-    fromNumber += 50
-    toNumber += 50
+    fromNumber += increaseBy
+    toNumber += increaseBy
 
     await sleep(3000)
   }

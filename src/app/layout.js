@@ -18,9 +18,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang='en' className={orbitron.variable}>
-      <body className={'antialiased'}>
+      <body className={'flex min-h-screen flex-col antialiased'}>
         <NavBar />
-        <main className='h-screen bg-gray-600'>{children}</main>
+        <main className='flex-1 bg-gray-600 px-20 py-10'>{children}</main>
         <FooterBar />
       </body>
     </html>

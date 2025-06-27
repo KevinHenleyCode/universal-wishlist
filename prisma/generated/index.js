@@ -168,7 +168,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Orange Code\\Documents\\Orange Projects\\Work\\Universal Wishlist App\\universal-wishlist\\prisma\\generated",
+      "value": "C:\\Users\\Orange Code\\Documents\\Coding Projects\\Work\\Universal Wishlist Project\\universal-wishlist\\prisma\\generated",
       "fromEnvVar": null
     },
     "config": {
@@ -182,7 +182,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Orange Code\\Documents\\Orange Projects\\Work\\Universal Wishlist App\\universal-wishlist\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Orange Code\\Documents\\Coding Projects\\Work\\Universal Wishlist Project\\universal-wishlist\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

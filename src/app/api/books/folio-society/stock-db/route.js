@@ -5,6 +5,8 @@ const prisma = new PrismaClient()
 export async function GET() {
   let fromNumber = 1
   let toNumber = 50
+  const increaseBy = 50
+  const listTotal = 200
 
   const rangeArray = (start, end) =>
     Array.from({ length: end - start + 1 }, (_, i) => i + start)
@@ -12,7 +14,7 @@ export async function GET() {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
   const recordsChecked = []
 
-  while (toNumber <= 200) {
+  while (toNumber <= listTotal) {
     const bookList = rangeArray(fromNumber, toNumber)
     const url = `${process.env.FOLIO_SOCIETY_API_URL}stock&verbosity=1&ids=${bookList}&pushDeps=true`
 
@@ -43,14 +45,14 @@ export async function GET() {
           update: {
             is_out_temp: stock.isOutTemp ?? false,
             isOut: stock.isOut ?? false,
-            quantity: stock.qty ?? 12345678,
+            quantity: stock.qty ?? null,
           },
           create: {
             type: stock.type ?? 'NULL',
             book_id: stock.id,
             is_out_temp: stock.isOutTemp ?? false,
             isOut: stock.isOut ?? false,
-            quantity: stock.qty ?? 12345678,
+            quantity: stock.qty ?? null,
           },
         })
       }
@@ -60,8 +62,8 @@ export async function GET() {
     `)
     }
 
-    fromNumber += 50
-    toNumber += 50
+    fromNumber += increaseBy
+    toNumber += increaseBy
 
     await sleep(3000)
   }
