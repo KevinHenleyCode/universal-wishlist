@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Universal Wishlist
 
-## Getting Started
+<br>
 
-First, run the development server:
+## Overview
+
+The **Universal Wishlist** is a web application designed to help users easily track and manage books they wish to acquire from various online sources. Initially integrated with the Folio Society's catalog, it will later include additional sources such as the Google Book's API.
+
+<br>
+
+## Current State
+
+### **Alpha Version**
+
+<br>
+
+## Features
+
+### Current Features
+
+- **Folio Society Integration:**
+  - Fetches detailed information about Folio Society books, including their current stock.
+  - Stores retrieved book information in a local SQLite database to avoid unnecessary API calls.
+
+### Planned Features
+
+- **Automatic Quantity Updates:** Automatically refresh book stock information when the page loads.
+- **User Wishlist:** Allow users to create and maintain personalized wishlists.
+- **Clean up UI:** Overhaul UI so it looks more appealing and responsive.
+- **Data Translation:** Transform identifiers (Authors, Illustrators, Introducers) from their coded IDs into easily readable formats.
+- **Local Image Storage:** Enable downloading and saving book images locally, to have a visual representation of each book.
+
+- **Expanded Book Catalog:** Integrate with the Google Book's API for extended book catalog.
+- **Ai integration:** Be able to ask ChatGPT to give you suggestions based on fields like, (Genre, Author, Series)
+
+<br>
+
+## Tech Stack
+
+- **Frontend:** Next.js 15, Tailwind CSS
+
+- **Backend:** Prisma ORM
+
+- **Database:** SQLite
+
+<br>
+
+## Installation and Setup
+
+### 1. Clone the Repository:
+
+```bash
+git clone git@github.com:KevinHenleyCode/universal-wishlist.git
+
+cd universal-wishlist
+```
+
+### 2. Install Dependencies:
+
+```bash
+npm install
+```
+
+### 3. Database Initialization and Prisma Client Generation:
+
+```bash
+npm run migrate-generate-db
+```
+
+### 4. Run App:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Create a .env file in the project's root directory with the following variables:
 
-## Learn More
+```bash
+FOLIO_SOCIETY_API_URL='https://www.foliosociety.com/usa/api/n/load?type='
+DATABASE_URL='file:./db/books.db'
+```
 
-To learn more about Next.js, take a look at the following resources:
+<br>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Initial Data Load:
+  - Visit the /books page of the application.
 
-## Deploy on Vercel
+  - Click **ADD TO DB** to fetch the latest book details from the Folio Society API and store them locally.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<br>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Note: Please use the **ADD TO DB** button responsibly, as each click retrieves the complete set of Product and Stock data from the Folio Society's API.
