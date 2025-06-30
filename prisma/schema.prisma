@@ -51,5 +51,6 @@ model FolioStock {
   is_out_temp             Boolean?
   isOut                   Boolean?
   quantity                Int?
+  myWishlist              Boolean?
   product                 FolioProduct @relation("ProductStock", fields: [book_id], references: [book_id])
 }
