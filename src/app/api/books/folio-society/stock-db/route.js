@@ -53,6 +53,7 @@ export async function GET() {
             is_out_temp: stock.isOutTemp ?? false,
             isOut: stock.isOut ?? false,
             quantity: stock.qty ?? null,
+            myWishlist: false,
           },
         })
       }
