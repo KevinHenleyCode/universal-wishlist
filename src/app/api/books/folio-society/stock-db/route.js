@@ -3,10 +3,15 @@ import { PrismaClient } from '../../../../../../prisma/generated'
 const prisma = new PrismaClient()
 
 export async function GET() {
+  // tells the initial array where to start and end
   let fromNumber = 1
-  let toNumber = 50
-  const increaseBy = 50
-  const listTotal = 200
+  let toNumber = 200
+
+  // tells the initial array how much to increase each time
+  const increaseBy = 200
+
+  // the total number of records to try and retrieve
+  const listTotal = 5000
 
   const rangeArray = (start, end) =>
     Array.from({ length: end - start + 1 }, (_, i) => i + start)
