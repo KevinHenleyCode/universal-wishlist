@@ -4,4 +4,10 @@
 @theme inline {
   --font-sans: var(--font-orbitron);
   --font-orbitron: var(--font-orbitron);
+  --color-custom-yellow: #ffb900;
+  --color-custom-blue: #4a6386;
+  --color-custom-green: #aacab1;
+  --color-custom-gray: #4d534f;
+  --color-custom-white: #f2f2f4;
+  --color-custom-red: #ff5733;
 }

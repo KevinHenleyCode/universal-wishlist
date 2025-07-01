@@ -20,7 +20,7 @@ const RootLayout = ({ children }) => {
     <html lang='en' className={orbitron.variable}>
       <body className={'flex min-h-screen flex-col antialiased'}>
         <NavBar />
-        <main className='flex-1 bg-gray-600 px-20 py-10'>{children}</main>
+        <main className='bg-custom-gray flex-1 px-20 py-10'>{children}</main>
         <FooterBar />
       </body>
     </html>

@@ -2,13 +2,23 @@ import Link from 'next/link'
 
 const NavBar = () => {
   return (
-    <nav className='sticky top-0 z-50 bg-amber-400 px-2 py-4'>
+    <nav className='bg-custom-yellow sticky top-0 z-50 px-2 py-4 shadow-sm shadow-black'>
       <ul className='flex text-xl font-semibold [&>li]:mx-2'>
         <li>
-          <Link href={'/'}>Home</Link>
+          <Link
+            href={'/'}
+            className='transition-all duration-200 ease-in-out hover:text-black/50'
+          >
+            Home
+          </Link>
         </li>
         <li>
-          <Link href={'/books'}>Books</Link>
+          <Link
+            href={'/books'}
+            className='transition-all duration-200 ease-in-out hover:text-black/50'
+          >
+            Books
+          </Link>
         </li>
       </ul>
     </nav>
