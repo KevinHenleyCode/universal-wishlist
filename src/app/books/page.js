@@ -1,8 +1,10 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
+import BookShelf from '@/components/hardware/BookShelf'
 
 const Books = () => {
-  const [library, setLibrary] = useState([])
+  const [books, setBooks] = useState([])
 
   // makes a call to the /product-db endpoint to push newest data to FolioProduct table
   const fetchProducts = async () => {
@@ -29,7 +31,7 @@ const Books = () => {
     const response = await res.json()
 
     if (response.success === true) {
-      setLibrary(response.data)
+      setBooks(response.data)
     }
   }
 
@@ -52,26 +54,21 @@ const Books = () => {
           PULL FROM DB
         </button>
       </div>
-      <div className=''>
-        <div className='mt-10 grid grid-cols-12 gap-x-8 gap-y-4'>
-          {library.map((book) => (
-            <span
-              key={book.book_id}
-              className='col-span-3 rounded-lg border-2 border-yellow-400 bg-gray-300 p-8'
-            >
-              <h3 className='text-2xl font-bold'>{book.title}</h3>
-              <span className='flex font-semibold'>
-                <b className='mr-2'>Quantity: </b>
-
-                {book.stock.quantity === null ? (
-                  <p className='text-orange-800'>Out of Stock</p>
-                ) : (
-                  <p className='text-teal-600'>{book.stock.quantity}</p>
-                )}
-              </span>
-            </span>
-          ))}
-        </div>
+      <div className='flex justify-between gap-x-8'>
+        <span className='relative w-1/2'>
+          <Image
+            src={'/images/undraw_book-lover_f1dq.svg'}
+            alt='Book Lover Image'
+            fill
+            className='w-full'
+          />
+        </span>
+        <BookShelf
+          books={books}
+          shelfStyling={
+            'mt-10 grid h-[600px] w-1/2 grid-cols-12 gap-x-8 gap-y-4 overflow-y-scroll'
+          }
+        />
       </div>
     </div>
   )
