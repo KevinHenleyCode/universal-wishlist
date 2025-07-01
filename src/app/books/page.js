@@ -66,7 +66,7 @@ const Books = () => {
         <BookShelf
           books={books}
           shelfStyling={
-            'mt-10 grid h-[600px] w-1/2 grid-cols-12 gap-x-8 gap-y-4 overflow-y-scroll'
+            'mt-10 grid h-[600px] w-1/2 grid-cols-12 gap-x-8 gap-y-4 overflow-y-scroll scrollbar scrollbar-thumb-amber-400 scrollbar-track-black/60 scrollbar-thin'
           }
         />
       </div>

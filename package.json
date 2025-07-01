@@ -26,6 +26,7 @@
     "prettier": "^3.6.0",
     "prettier-plugin-tailwindcss": "^0.6.13",
     "prisma": "^6.11.0",
+    "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4"
   }
 }
