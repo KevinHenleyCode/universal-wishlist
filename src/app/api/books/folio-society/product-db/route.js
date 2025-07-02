@@ -4,7 +4,7 @@ import convertDateWTime from '@/lib/utils/convertDateWTime'
 import { PrismaClient } from '../../../../../../prisma/generated'
 const prisma = new PrismaClient()
 
-export async function POST(request) {
+export async function GET() {
   // tells the initial array where to start and end
   let fromNumber = 1
   let toNumber = 50

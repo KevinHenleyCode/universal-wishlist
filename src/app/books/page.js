@@ -11,8 +11,7 @@ const Books = () => {
   // makes a call to the /product-db endpoint to push newest data to FolioProduct table
   const fetchProducts = async () => {
     const res = await fetch(`/api/books/folio-society/product-db`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'GET',
     })
     const results = await res.json()
 
@@ -24,8 +23,7 @@ const Books = () => {
 
   const fetchStock = async () => {
     const res = await fetch(`/api/books/folio-society/stock-db`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'GET',
     })
     const results = await res.json()
 
@@ -81,7 +79,7 @@ const Books = () => {
           <CiImport className='text-2xl transition-all duration-200 ease-in-out' />
         </button>
       </div>
-      <div className='flex justify-between gap-x-8'>
+      <div className='flex w-4/5 justify-between gap-x-8'>
         <span className='relative w-1/4'>
           <Image
             src={'/images/undraw_book-lover_f1dq.svg'}
@@ -90,13 +88,25 @@ const Books = () => {
             className='w-full'
           />
         </span>
-        <BookShelf
-          books={books}
-          shelfStyling={
-            'h-[600px] w-3/4 grid grid-cols-12 gap-x-6 gap-y-4 bg-custom-gray mt-10 p-4 rounded-md inset-shadow-sm inset-shadow-black overflow-y-scroll scrollbar scrollbar-thumb-amber-400 scrollbar-track-black/60 scrollbar-thin'
-          }
-          handleUpdateWishlist={updateWishlist}
-        />
+        {books.length === 0 ? (
+          <>
+            <div className='bg-custom-gray mt-10 flex h-[600px] w-3/4 items-center justify-center rounded-md p-4 inset-shadow-sm inset-shadow-black'>
+              <h3 className='text-custom-yellow/70 text-6xl font-semibold tracking-widest'>
+                NO BOOKS YET...
+              </h3>
+            </div>
+          </>
+        ) : (
+          <>
+            <BookShelf
+              books={books}
+              shelfStyling={
+                'h-[600px] w-3/4 grid grid-cols-12 gap-x-6 gap-y-4 bg-custom-gray mt-10 p-4 rounded-md inset-shadow-sm inset-shadow-black overflow-y-scroll scrollbar scrollbar-thumb-amber-400 scrollbar-track-black/60 scrollbar-thin'
+              }
+              handleUpdateWishlist={updateWishlist}
+            />
+          </>
+        )}
       </div>
     </div>
   )
