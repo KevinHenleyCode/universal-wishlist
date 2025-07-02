@@ -3,13 +3,17 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { CiImport } from 'react-icons/ci'
 import BookShelf from '@/components/hardware/BookShelf'
+import { BarLoader } from 'react-spinners'
 
 const Books = () => {
   const [books, setBooks] = useState([])
   const [wishlistData, setWishlistData] = useState([])
+  const [loading, setLoading] = useState(true)
 
   // makes a call to the /product-db endpoint to push newest data to FolioProduct table
   const fetchProducts = async () => {
+    setLoading(true)
+
     const res = await fetch(`/api/books/folio-society/product-db`, {
       method: 'GET',
     })
@@ -29,6 +33,8 @@ const Books = () => {
 
     if (results.success === true) {
       console.log(`Stock-Success: ${results.success}`)
+
+      fetchAllData()
     }
   }
 
@@ -41,6 +47,7 @@ const Books = () => {
 
     if (response.success === true) {
       setBooks(response.data)
+      setLoading(false)
     }
   }
 
@@ -88,7 +95,14 @@ const Books = () => {
             className='w-full'
           />
         </span>
-        {books.length === 0 ? (
+        {loading ? (
+          <div className='bg-custom-gray mt-10 flex h-[600px] w-3/4 flex-col items-center justify-center rounded-md p-4 inset-shadow-sm inset-shadow-black [&>*]:my-4'>
+            <h3 className='text-custom-yellow/80 text-6xl font-semibold tracking-widest'>
+              LOADING
+            </h3>
+            <BarLoader color='#ffb900' width={400} height={6} />
+          </div>
+        ) : books.length === 0 ? (
           <>
             <div className='bg-custom-gray mt-10 flex h-[600px] w-3/4 items-center justify-center rounded-md p-4 inset-shadow-sm inset-shadow-black'>
               <h3 className='text-custom-yellow/70 text-6xl font-semibold tracking-widest'>
