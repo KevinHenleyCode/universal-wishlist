@@ -6,6 +6,7 @@ import BookShelf from '@/components/hardware/BookShelf'
 
 const Books = () => {
   const [books, setBooks] = useState([])
+  const [wishlistData, setWishlistData] = useState([])
 
   // makes a call to the /product-db endpoint to push newest data to FolioProduct table
   const fetchProducts = async () => {
@@ -45,9 +46,26 @@ const Books = () => {
     }
   }
 
+  const updateWishlist = async (id, currentChoice) => {
+    const res = await fetch(`/api/books/folio-society/`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        currentBookId: id,
+        wishlistChoice: !currentChoice,
+      }),
+    })
+    const response = await res.json()
+
+    if (response.success === true) {
+      console.log(`Success = ${response.success}!`)
+      setWishlistData(response)
+    }
+  }
+
   useEffect(() => {
     fetchAllData()
-  }, [])
+  }, [wishlistData])
 
   return (
     <div className='flex flex-col items-center justify-center'>
@@ -77,6 +95,7 @@ const Books = () => {
           shelfStyling={
             'h-[600px] w-3/4 grid grid-cols-12 gap-x-6 gap-y-4 bg-custom-gray mt-10 p-4 rounded-md inset-shadow-sm inset-shadow-black overflow-y-scroll scrollbar scrollbar-thumb-amber-400 scrollbar-track-black/60 scrollbar-thin'
           }
+          handleUpdateWishlist={updateWishlist}
         />
       </div>
     </div>
