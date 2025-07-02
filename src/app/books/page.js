@@ -9,7 +9,10 @@ const Books = () => {
 
   // makes a call to the /product-db endpoint to push newest data to FolioProduct table
   const fetchProducts = async () => {
-    const res = await fetch(`/api/books/folio-society/product-db`)
+    const res = await fetch(`/api/books/folio-society/product-db`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    })
     const results = await res.json()
 
     if (results.success === true) {
@@ -19,7 +22,10 @@ const Books = () => {
   }
 
   const fetchStock = async () => {
-    const res = await fetch(`/api/books/folio-society/stock-db`)
+    const res = await fetch(`/api/books/folio-society/stock-db`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    })
     const results = await res.json()
 
     if (results.success === true) {
@@ -28,7 +34,10 @@ const Books = () => {
   }
 
   const fetchAllData = async () => {
-    const res = await fetch(`./api/books/folio-society`)
+    const res = await fetch(`./api/books/folio-society`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    })
     const response = await res.json()
 
     if (response.success === true) {
