@@ -25,6 +25,7 @@ const Books = () => {
     }
   }
 
+  // this is calls to the stock-db to grab records only for books that are already in our own database
   const fetchStock = async () => {
     const res = await fetch(`/api/books/folio-society/stock-db`, {
       method: 'GET',
@@ -38,6 +39,7 @@ const Books = () => {
     }
   }
 
+  // this pulls all books from our database as soon as the page loads or after the fetchStock() function returns a success of true
   const fetchAllData = async () => {
     const res = await fetch(`./api/books/folio-society`, {
       method: 'POST',
@@ -51,6 +53,7 @@ const Books = () => {
     }
   }
 
+  // changes the value of wishlistChoice to true or false for the book with the matching currentBookId
   const updateWishlist = async (id, currentChoice) => {
     const res = await fetch(`/api/books/folio-society/`, {
       method: 'PUT',
