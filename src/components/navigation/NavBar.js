@@ -20,6 +20,14 @@ const NavBar = () => {
             Books
           </Link>
         </li>
+        <li>
+          <Link
+            href={'/wishlist'}
+            className='transition-all duration-200 ease-in-out hover:text-black/50'
+          >
+            Wishlist
+          </Link>
+        </li>
       </ul>
     </nav>
   )

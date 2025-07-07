@@ -3,10 +3,22 @@ import { PrismaClient } from '../../../../../prisma/generated'
 const prisma = new PrismaClient()
 
 export async function POST(request) {
+  const body = await request.json()
+  const { wishlistPage } = body
+
   const data = await prisma.folioProduct.findMany({
     include: {
       stock: true,
     },
+    where: wishlistPage
+      ? {
+          stock: {
+            is: {
+              myWishlist: true,
+            },
+          },
+        }
+      : undefined,
   })
 
   return NextResponse.json({ success: true, data })

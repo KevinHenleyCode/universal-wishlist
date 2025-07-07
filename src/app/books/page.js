@@ -44,11 +44,12 @@ const Books = () => {
     const res = await fetch(`./api/books/folio-society`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ wishlistPage: false }),
     })
-    const response = await res.json()
+    const results = await res.json()
 
-    if (response.success === true) {
-      setBooks(response.data)
+    if (results.success === true) {
+      setBooks(results.data)
       setLoading(false)
     }
   }
@@ -63,11 +64,11 @@ const Books = () => {
         wishlistChoice: !currentChoice,
       }),
     })
-    const response = await res.json()
+    const results = await res.json()
 
-    if (response.success === true) {
-      console.log(`Success = ${response.success}!`)
-      setWishlistData(response)
+    if (results.success === true) {
+      console.log(`Success = ${results.success}!`)
+      setWishlistData(results)
     }
   }
 
