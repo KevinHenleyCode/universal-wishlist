@@ -27,14 +27,14 @@ export async function POST(request) {
 export async function PUT(request) {
   const body = await request.json()
 
-  const { currentBookId, wishlistChoice } = body
+  const { wishlistBookId, wishlistBookTitle, wishlistChoice } = body
   console.log(
-    `Current Book ID: ${currentBookId}, Wishlist Choice: ${wishlistChoice}`,
+    `Current Book ID: ${wishlistBookId}, Current Book Title: ${wishlistBookTitle}, Wishlist Choice: ${wishlistChoice}`,
   )
 
   try {
     const data = await prisma.folioStock.update({
-      where: { book_id: currentBookId },
+      where: { book_id: wishlistBookId },
       data: { myWishlist: wishlistChoice },
     })
   } catch (err) {
@@ -43,5 +43,9 @@ export async function PUT(request) {
     `)
   }
 
-  return NextResponse.json({ success: true })
+  return NextResponse.json({
+    success: true,
+    updatedBookTitle: wishlistBookTitle,
+    updatedWishlistChoice: wishlistChoice,
+  })
 }

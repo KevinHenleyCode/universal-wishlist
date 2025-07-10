@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { CiImport } from 'react-icons/ci'
 import BookShelf from '@/components/hardware/BookShelf'
 import { BarLoader } from 'react-spinners'
+import toast, { Toaster } from 'react-hot-toast'
 
 const Books = () => {
   const [books, setBooks] = useState([])
@@ -55,19 +56,27 @@ const Books = () => {
   }
 
   // changes the value of wishlistChoice to true or false for the book with the matching currentBookId
-  const updateWishlist = async (id, currentChoice) => {
+  const updateWishlist = async (currentId, currentTitle, currentChoice) => {
     const res = await fetch(`/api/books/folio-society/`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        currentBookId: id,
+        wishlistBookId: currentId,
+        wishlistBookTitle: currentTitle,
         wishlistChoice: !currentChoice,
       }),
     })
     const results = await res.json()
 
     if (results.success === true) {
-      console.log(`Success = ${results.success}!`)
+      results.updatedWishlistChoice === true
+        ? toast.success(`Added ${results.updatedBookTitle} to Wishlist`, {
+            position: 'top-left',
+          })
+        : toast.error(`Removed ${results.updatedBookTitle} from Wishlist`, {
+            position: 'top-left',
+          })
+
       setWishlistData(results)
     }
   }
@@ -78,6 +87,7 @@ const Books = () => {
 
   return (
     <div className='flex flex-col items-center justify-center'>
+      <Toaster />
       <h1 className='text-custom-white text-6xl tracking-wider'>BOOKS</h1>
       <div className='mt-10 flex w-full items-center justify-end'>
         <b className='text-custom-white mr-4 tracking-widest'>

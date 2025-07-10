@@ -12,7 +12,11 @@ const BookShelf = ({ books, shelfStyling, handleUpdateWishlist }) => {
             <h3 className='text-xl font-bold'>{book.title}</h3>
             <button
               onClick={() =>
-                handleUpdateWishlist(book.book_id, book.stock.myWishlist)
+                handleUpdateWishlist(
+                  book.book_id,
+                  book.title,
+                  book.stock.myWishlist,
+                )
               }
             >
               {book.stock.myWishlist === false ? (
